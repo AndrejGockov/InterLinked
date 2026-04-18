@@ -23,7 +23,11 @@ namespace InterLinked.Models
         //add everything for each account type
 
         public ICollection<Post>? MyPosts { get; set; }
-        //public ICollection<Application>? MyApplications { get; set; }
+        public ICollection<Application>? MyApplications { get; set; }
+
+
+
+
 
     }
 }

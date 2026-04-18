@@ -1,14 +1,18 @@
 ﻿@model IEnumerable<InterLinked.Models.Post>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Internships/job Posts";
 }
 
-<h1>Index</h1>
+<h1>Current Internships/job Posts</h1>
 
+
+@if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
+{
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New Post</a>
 </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -16,16 +20,19 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Company
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PostedAt)
+                Post description
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValidTo)
+                Posted At
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WebsiteLink)
+                Apply until
+            </th>
+            <th>
+                Website Link
             </th>
             <th></th>
         </tr>
@@ -35,6 +42,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @item.User?.UserName
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
@@ -49,9 +59,19 @@
                 @Html.DisplayFor(modelItem => item.WebsiteLink)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
+                    @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
+                {
+                <a asp-action="edit" asp-route-id="@item.PostId">edit</a> 
+                        <a asp-action="details" asp-route-id="@item.PostId">details</a>
+                        <a asp-action="delete" asp-route-id="@item.PostId">delete</a>
+                }
+
+                @if (User.IsInRole("Individual"))
+                {
+                        <a asp-controller="Applications" asp-action="Create" asp-route-postId="@item.PostId">Apply</a>
+                }
+                    
+
             </td>
         </tr>
 }

@@ -6729,9 +6729,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\InterLinked.csproj",
-      "projectName": "InterLinked",
-      "projectPath": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\InterLinked.csproj",
+      "projectUniqueName": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Linker.csproj",
+      "projectName": "Linker",
+      "projectPath": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Linker.csproj",
       "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\obj\\",
       "projectStyle": "PackageReference",

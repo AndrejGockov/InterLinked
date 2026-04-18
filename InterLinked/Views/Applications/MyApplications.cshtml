@@ -1,0 +1,28 @@
+﻿@model IEnumerable<InterLinked.Models.Application>
+
+@{
+    ViewData["Title"] = "My Applications";
+}
+
+<h1>My Applications</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Post</th>
+            <th>Company</th>
+            <th>Applied At</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Post?.Title</td>
+                <td>@item.Post?.User?.UserName</td>
+                <td>@item.AppliedAt</td>
+            </tr>
+        }
+    </tbody>
+</table>

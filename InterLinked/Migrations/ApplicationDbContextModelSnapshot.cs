@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace InterLinked.Migrations
+namespace Linker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -21,6 +21,33 @@ namespace InterLinked.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("InterLinked.Models.Application", b =>
+                {
+                    b.Property<int>("ApplicationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ApplicationId"));
+
+                    b.Property<DateTime>("AppliedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ApplicationId");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Applications");
+                });
 
             modelBuilder.Entity("InterLinked.Models.InterlinkedAppUser", b =>
                 {
@@ -264,6 +291,25 @@ namespace InterLinked.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("InterLinked.Models.Application", b =>
+                {
+                    b.HasOne("InterLinked.Models.Post", "Post")
+                        .WithMany("Applications")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("InterLinked.Models.InterlinkedAppUser", "User")
+                        .WithMany("MyApplications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Post");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("InterLinked.Models.Post", b =>
                 {
                     b.HasOne("InterLinked.Models.InterlinkedAppUser", "User")
@@ -326,7 +372,14 @@ namespace InterLinked.Migrations
 
             modelBuilder.Entity("InterLinked.Models.InterlinkedAppUser", b =>
                 {
+                    b.Navigation("MyApplications");
+
                     b.Navigation("MyPosts");
+                });
+
+            modelBuilder.Entity("InterLinked.Models.Post", b =>
+                {
+                    b.Navigation("Applications");
                 });
 #pragma warning restore 612, 618
         }

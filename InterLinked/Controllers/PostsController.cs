@@ -23,7 +23,11 @@ namespace InterLinked.Controllers
         // GET: Posts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Post.ToListAsync());
+            var posts = await _context.Post
+                .Include(p => p.User)
+                .ToListAsync();
+
+            return View(posts);
         }
 
         // GET: Posts/Details/5
@@ -74,7 +78,7 @@ namespace InterLinked.Controllers
                 return Unauthorized();
 
             post.UserId = userId;
-            post.PostedAt = DateTime.UtcNow;
+            post.PostedAt = DateTime.Now;
 
             _context.Post.Add(post);
             await _context.SaveChangesAsync();

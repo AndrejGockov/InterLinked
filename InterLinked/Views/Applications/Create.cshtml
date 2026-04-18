@@ -1,0 +1,17 @@
+﻿@model InterLinked.Models.Application
+
+@{
+    ViewData["Title"] = "Apply";
+}
+
+<h1>Apply</h1>
+
+<form asp-controller="Applications" asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="PostId" />
+
+    <button type="submit" class="btn btn-primary">
+        Apply
+    </button>
+</form>

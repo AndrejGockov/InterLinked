@@ -21,10 +21,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Posts" asp-action="Index">Posts</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Posts" asp-action="MyPosts" >My Posts</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Posts" asp-action="Index">Posts</a>                        
 
                         </li>
+                        @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Posts" asp-action="MyPosts">My Posts</a>
+                                </li>
+                            }
+                            else if(User.IsInRole("Individual"))
+                            {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Applications" asp-action="MyApplications">My Applications</a>
+                            </li>
+                            }
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

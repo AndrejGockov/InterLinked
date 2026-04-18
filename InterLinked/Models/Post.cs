@@ -26,6 +26,8 @@ namespace InterLinked.Models
         public string? UserId { get; set; } = default!;
         public InterlinkedAppUser? User { get; set; } = default!;
 
+        public ICollection<Application>? Applications { get; set; }
+
 
     }
 }
