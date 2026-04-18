@@ -9,11 +9,20 @@
 <div class="row">
     <div class="col-md-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
+            <h2>Create a new account today.</h2>
             <hr />
+
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+
             <div class="form-floating mb-3">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <input asp-for="Input.UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="Username" />
+                <label asp-for="Input.UserName">Username</label>
+                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" autocomplete="email" aria-required="true" placeholder="name@example.com" />
                 <label asp-for="Input.Email">Email</label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
@@ -29,7 +38,7 @@
             </div>
             <div class="form-floating mb-3">
                 <select asp-for="Input.organizationType" class="form-select"
-                        asp-items="Html.GetEnumSelectList<InterLinked.Models.User.UserType>()">
+                        asp-items="Html.GetEnumSelectList<InterLinked.Models.InterlinkedAppUser.UserType>()">
                 </select>
                 <label asp-for="Input.organizationType">Account Type</label>
                 <span asp-validation-for="Input.organizationType" class="text-danger"></span>
