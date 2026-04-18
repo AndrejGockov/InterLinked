@@ -20,15 +20,14 @@ public class Post : BaseEntity
     public ICollection<PostTag> PostTags { get; set; } = new List<PostTag>();
     public ICollection<Application> Applications { get; set; } = new List<Application>();
 }
-public class Tag :BaseEntity
+public class Tag : BaseEntity
 {
     public string? Name { get; set; }
-
     public ICollection<PostTag> PostTags { get; set; } = new List<PostTag>();
 }
-
-public class PostTag : BaseEntity
+public class PostTag
 {
+    public Guid PostId { get; set; }
     public Guid TagId { get; set; }
 
     public Post Post { get; set; } = null!;
