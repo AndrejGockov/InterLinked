@@ -56,7 +56,18 @@
                 @Html.DisplayFor(modelItem => item.ValidTo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.WebsiteLink)
+                @{
+                    var url = item.WebsiteLink;
+
+                    if (!string.IsNullOrEmpty(url) && !url.StartsWith("http"))
+                    {
+                        url = "https://" + url;
+                    }
+                }
+
+                <a href="@url" target="_blank" rel="noopener noreferrer">
+                    @item.WebsiteLink
+                </a>
             </td>
             <td>
                     @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))

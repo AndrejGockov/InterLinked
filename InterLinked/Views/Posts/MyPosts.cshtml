@@ -42,10 +42,18 @@
                 </td>
 
                 <td>
-                    @if (!string.IsNullOrEmpty(item.WebsiteLink))
-                    {
-                        <a href="@item.WebsiteLink" target="_blank">Visit</a>
+                    @{
+                        var url = item.WebsiteLink;
+
+                        if (!string.IsNullOrEmpty(url) && !url.StartsWith("http"))
+                        {
+                            url = "https://" + url;
+                        }
                     }
+
+                    <a href="@url" target="_blank" rel="noopener noreferrer">
+                        @item.WebsiteLink
+                    </a>
                 </td>
 
                 <td>
