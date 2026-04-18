@@ -14,7 +14,7 @@ namespace InterLinked.Models
         public DateTime PostedAt { get; set; } = DateTime.Now;
         public DateTime? ValidTo { get; set; }
         public bool IsActive() {
-            return ValidTo > DateTime.Now ;
+            return ValidTo == null || ValidTo > DateTime.Now;
         }
 
         //[NotMapped]
@@ -22,6 +22,9 @@ namespace InterLinked.Models
         //public string? ThumbnailPicturePath { get; set; }
 
         public string? WebsiteLink { get; set; }
+
+        public string? UserId { get; set; } = default!;
+        public InterlinkedAppUser? User { get; set; } = default!;
 
 
     }

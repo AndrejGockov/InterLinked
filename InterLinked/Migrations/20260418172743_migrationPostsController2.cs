@@ -5,7 +5,7 @@
 namespace InterLinked.Migrations
 {
     /// <inheritdoc />
-    public partial class PostsUpdate2 : Migration
+    public partial class migrationPostsController2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

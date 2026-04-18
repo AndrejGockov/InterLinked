@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace InterLinked.Models
 {
@@ -21,7 +22,8 @@ namespace InterLinked.Models
 
         //add everything for each account type
 
-
+        public ICollection<Post>? MyPosts { get; set; }
+        //public ICollection<Application>? MyApplications { get; set; }
 
     }
 }

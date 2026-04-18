@@ -111,6 +111,9 @@ namespace InterLinked.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime?>("ValidTo")
                         .HasColumnType("datetime2");
 
@@ -118,6 +121,8 @@ namespace InterLinked.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PostId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Post");
                 });
@@ -259,6 +264,15 @@ namespace InterLinked.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("InterLinked.Models.Post", b =>
+                {
+                    b.HasOne("InterLinked.Models.InterlinkedAppUser", "User")
+                        .WithMany("MyPosts")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -308,6 +322,11 @@ namespace InterLinked.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("InterLinked.Models.InterlinkedAppUser", b =>
+                {
+                    b.Navigation("MyPosts");
                 });
 #pragma warning restore 612, 618
         }

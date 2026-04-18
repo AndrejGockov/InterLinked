@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InterLinked.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260418153436_PostsMigration")]
-    partial class PostsMigration
+    [Migration("20260418173944_migrationPostsController3")]
+    partial class migrationPostsController3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -114,6 +114,9 @@ namespace InterLinked.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime?>("ValidTo")
                         .HasColumnType("datetime2");
 
@@ -121,6 +124,8 @@ namespace InterLinked.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PostId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Post");
                 });
@@ -262,6 +267,15 @@ namespace InterLinked.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("InterLinked.Models.Post", b =>
+                {
+                    b.HasOne("InterLinked.Models.InterlinkedAppUser", "User")
+                        .WithMany("MyPosts")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -311,6 +325,11 @@ namespace InterLinked.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("InterLinked.Models.InterlinkedAppUser", b =>
+                {
+                    b.Navigation("MyPosts");
                 });
 #pragma warning restore 612, 618
         }

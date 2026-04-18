@@ -1,22 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using InterLinked.Data;
+﻿using InterLinked.Data;
 using InterLinked.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace InterLinked.Controllers
 {
     public class PostsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<InterlinkedAppUser> _userManager;
 
-        public PostsController(ApplicationDbContext context)
+        public PostsController(ApplicationDbContext context,
+        UserManager<InterlinkedAppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Posts
@@ -54,19 +55,35 @@ namespace InterLinked.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PostId,Title,Description,PostedAt,ValidTo,WebsiteLink")] Post post)
+        [Authorize]
+        public async Task<IActionResult> Create(Post post)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Add(post);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var errors = ModelState
+                    .SelectMany(x => x.Value.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .ToList();
+
+                return BadRequest(errors);
             }
-            return View(post);
+
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null)
+                return Unauthorized();
+
+            post.UserId = userId;
+            post.PostedAt = DateTime.UtcNow;
+
+            _context.Post.Add(post);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(MyPosts));
         }
 
-        // GET: Posts/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+    // GET: Posts/Edit/5
+    public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -86,33 +103,33 @@ namespace InterLinked.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("PostId,Title,Description,PostedAt,ValidTo,WebsiteLink")] Post post)
         {
             if (id != post.PostId)
-            {
                 return NotFound();
-            }
+
+            var userId = _userManager.GetUserId(User);
+
+            var existingPost = await _context.Post.FindAsync(id);
+
+            if (existingPost == null)
+                return NotFound();
+
+            if (existingPost.UserId != userId)
+                return Forbid();
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(post);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PostExists(post.PostId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                existingPost.Title = post.Title;
+                existingPost.Description = post.Description;
+                existingPost.ValidTo = post.ValidTo;
+                existingPost.WebsiteLink = post.WebsiteLink;
+
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(post);
         }
 
@@ -135,23 +152,51 @@ namespace InterLinked.Controllers
         }
 
         // POST: Posts/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var post = await _context.Post.FindAsync(id);
-            if (post != null)
-            {
-                _context.Post.Remove(post);
-            }
 
+            if (post == null)
+                return NotFound();
+
+            var userId = _userManager.GetUserId(User);
+
+            if (post.UserId != userId)
+                return Forbid();
+
+            _context.Post.Remove(post);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
         private bool PostExists(int id)
         {
             return _context.Post.Any(e => e.PostId == id);
+        }
+
+
+
+
+        [Authorize]
+        public async Task<IActionResult> MyPosts()
+        {
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
+            var posts = await _context.Post
+                .Where(p => p.UserId == userId)
+                .OrderByDescending(p => p.PostedAt)
+                .ToListAsync();
+
+            return View(posts);
         }
     }
 }

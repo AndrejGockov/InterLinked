@@ -8,46 +8,61 @@
 
 <h4>Post</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
                 <label asp-for="Title" class="control-label">Title post</label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Description" class="control-label">Enter a description for the post (Optional)</label>
+                <label asp-for="Description" class="control-label">
+                    Enter a description for the post (Optional)
+                </label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            @* <div class="form-group">
-                <label asp-for="PostedAt" class="control-label"></label>
-                <input asp-for="PostedAt" class="form-control" />
-                <span asp-validation-for="PostedAt" class="text-danger"></span>
-            </div> *@
+
+            @* PostedAt is handled in controller *@
+
             <div class="form-group">
-                <label asp-for="ValidTo" class="control-label">Post will be open until date/time:</label>
+                <label asp-for="ValidTo" class="control-label">
+                    Post will be open until date/time:
+                </label>
                 <input asp-for="ValidTo" class="form-control" />
                 <span asp-validation-for="ValidTo" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="WebsiteLink" class="control-label">Link to post website (Optional)</label>
+                <label asp-for="WebsiteLink" class="control-label">
+                    Link to post website (Optional)
+                </label>
                 <input asp-for="WebsiteLink" class="form-control" />
                 <span asp-validation-for="WebsiteLink" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="form-group mt-3">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
+
     </div>
 </div>
 
-<div>
+<div class="mt-3">
     <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
