@@ -6,5 +6,6 @@ namespace InterLinked.Data
 {
     public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext<InterlinkedAppUser>(options)
     {
+        public DbSet<InterLinked.Models.Post> Post { get; set; } = default!;
     }
 }

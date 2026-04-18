@@ -12,17 +12,16 @@ namespace InterLinked.Models
             Company
         }
 
-        //public string? PhoneNum { get; set; }
-
-        //public required string Username { get; set; }
         public required UserType organizationType { get; set; }
 
         [NotMapped]
         public IFormFile? profilePicture { get; set; }
-
         public string? ProfilePicturePath { get; set; }
 
-        //internal bool isCompany;
-        //public bool isCompany { get; internal set; }
+
+        //add everything for each account type
+
+
+
     }
 }

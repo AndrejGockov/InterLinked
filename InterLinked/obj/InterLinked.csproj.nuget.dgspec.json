@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked-8a77b9ad62f5a96dee2a72545a772a6b3435b774(1)\\InterLinked\\InterLinked.csproj": {}
+    "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\InterLinked.csproj": {}
   },
   "projects": {
-    "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked-8a77b9ad62f5a96dee2a72545a772a6b3435b774(1)\\InterLinked\\InterLinked.csproj": {
+    "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\InterLinked.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked-8a77b9ad62f5a96dee2a72545a772a6b3435b774(1)\\InterLinked\\InterLinked.csproj",
+        "projectUniqueName": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\InterLinked.csproj",
         "projectName": "InterLinked",
-        "projectPath": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked-8a77b9ad62f5a96dee2a72545a772a6b3435b774(1)\\InterLinked\\InterLinked.csproj",
+        "projectPath": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\InterLinked.csproj",
         "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked-8a77b9ad62f5a96dee2a72545a772a6b3435b774(1)\\InterLinked\\obj\\",
+        "outputPath": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -31,7 +31,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -53,7 +52,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
