@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace InterLinked.Data.Migrations
+namespace InterLinked.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260418091555_Fix_Login")]
-    partial class Fix_Login
+    [Migration("20260418122322_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace InterLinked.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("InterLinked.Models.User", b =>
+            modelBuilder.Entity("InterLinked.Models.InterlinkedAppUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -67,6 +67,9 @@ namespace InterLinked.Data.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("ProfilePicturePath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -76,6 +79,9 @@ namespace InterLinked.Data.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<int>("organizationType")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -238,7 +244,7 @@ namespace InterLinked.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("InterLinked.Models.User", null)
+                    b.HasOne("InterLinked.Models.InterlinkedAppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -247,7 +253,7 @@ namespace InterLinked.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("InterLinked.Models.User", null)
+                    b.HasOne("InterLinked.Models.InterlinkedAppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -262,7 +268,7 @@ namespace InterLinked.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("InterLinked.Models.User", null)
+                    b.HasOne("InterLinked.Models.InterlinkedAppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -271,7 +277,7 @@ namespace InterLinked.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("InterLinked.Models.User", null)
+                    b.HasOne("InterLinked.Models.InterlinkedAppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

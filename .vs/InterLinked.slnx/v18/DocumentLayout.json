@@ -1,29 +1,75 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\angel\\Desktop\\InterLinked\\",
+  "WorkspaceRootPath": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\models\\interlinkedappuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\models\\interlinkedappuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\scaffoldingreadme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\scaffoldingreadme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_InterLinked_b37a9a67_c318_4c66_af6c_c2ccf3ed395c/True/SqlTable/dbo.AspNetUserTokens.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_InterLinked_b37a9a67_c318_4c66_af6c_c2ccf3ed395c/True/SqlTable/dbo.AspNetRoleClaims.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Data\\Migrations\\20260418121604_test3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InterLinked\\Data\\Migrations\\20260418121604_test3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_InterLinked_b37a9a67_c318_4c66_af6c_c2ccf3ed395c/True/SqlTable/dbo.AspNetUsers.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Data\\Migrations\\20260418103414_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InterLinked\\Data\\Migrations\\20260418103414_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\interlinked.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\interlinked.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\interlinked.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\areas\\identity\\pages\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\areas\\identity\\pages\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked current\\interlinked\\interlinked\\migrations\\20260418122322_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\migrations\\20260418122322_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,25 +84,50 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Register.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "RelativeDocumentMoniker": "InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "RelativeToolTip": "InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAUwH4AAAAAAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Program.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Program.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Program.cs",
+              "RelativeToolTip": "InterLinked\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T10:33:07.306Z",
+              "WhenOpened": "2026-04-18T12:34:14.865Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeToolTip": "InterLinked\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAAHIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T12:28:02.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Logout.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "RelativeToolTip": "InterLinked\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T12:28:02.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeToolTip": "InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-18T10:37:48.262Z",
               "EditorCaption": ""
@@ -64,51 +135,162 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "dbo.AspNetUsers [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_InterLinked_b37a9a67_c318_4c66_af6c_c2ccf3ed395c/True/SqlTable/dbo.AspNetUsers.sql",
-              "ToolTip": "dbo.AspNetUsers [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-04-18T10:37:07.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "20260418103414_test.cs",
-              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Data\\Migrations\\20260418103414_test.cs",
-              "RelativeDocumentMoniker": "InterLinked\\Data\\Migrations\\20260418103414_test.cs",
-              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Data\\Migrations\\20260418103414_test.cs",
-              "RelativeToolTip": "InterLinked\\Data\\Migrations\\20260418103414_test.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeToolTip": "InterLinked\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAqwNkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T10:34:15.116Z",
+              "WhenOpened": "2026-04-18T10:33:07.306Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "InterLinked\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "InterLinked\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T10:30:27.936Z",
-              "EditorCaption": ""
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "InterLinked\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "InterLinked\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-18T12:28:02.636Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "InterLinked",
-              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\InterLinked.csproj",
+              "Title": "InterlinkedAppUser.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Models\\InterlinkedAppUser.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Models\\InterlinkedAppUser.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Models\\InterlinkedAppUser.cs",
+              "RelativeToolTip": "InterLinked\\Models\\InterlinkedAppUser.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T12:31:08.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "dbo.AspNetUserTokens.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_InterLinked_b37a9a67_c318_4c66_af6c_c2ccf3ed395c/True/SqlTable/dbo.AspNetUserTokens.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_InterLinked_b37a9a67_c318_4c66_af6c_c2ccf3ed395c/True/SqlTable/dbo.AspNetUserTokens.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-04-18T12:25:51.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "dbo.AspNetRoleClaims.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_InterLinked_b37a9a67_c318_4c66_af6c_c2ccf3ed395c/True/SqlTable/dbo.AspNetRoleClaims.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_InterLinked_b37a9a67_c318_4c66_af6c_c2ccf3ed395c/True/SqlTable/dbo.AspNetRoleClaims.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-04-18T12:25:44.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Logout.cshtml",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+              "RelativeDocumentMoniker": "InterLinked\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+              "RelativeToolTip": "InterLinked\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-18T12:28:02.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ScaffoldingReadMe.txt",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\ScaffoldingReadMe.txt",
+              "RelativeDocumentMoniker": "InterLinked\\ScaffoldingReadMe.txt",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\ScaffoldingReadMe.txt",
+              "RelativeToolTip": "InterLinked\\ScaffoldingReadMe.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-04-18T12:28:03.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20260418122322_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Migrations\\20260418122322_InitialCreate.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Migrations\\20260418122322_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Migrations\\20260418122322_InitialCreate.cs",
+              "RelativeToolTip": "InterLinked\\Migrations\\20260418122322_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T12:23:22.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20260418121604_test3.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Data\\Migrations\\20260418121604_test3.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Data\\Migrations\\20260418121604_test3.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Data\\Migrations\\20260418121604_test3.cs",
+              "RelativeToolTip": "InterLinked\\Data\\Migrations\\20260418121604_test3.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T12:16:04.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Models\\Client.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Models\\Client.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Models\\Client.cs",
+              "RelativeToolTip": "InterLinked\\Models\\Client.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T12:12:17.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwCMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-18T12:06:16.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "dbo.AspNetUsers.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_InterLinked_b37a9a67_c318_4c66_af6c_c2ccf3ed395c/True/SqlTable/dbo.AspNetUsers.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_InterLinked_b37a9a67_c318_4c66_af6c_c2ccf3ed395c/True/SqlTable/dbo.AspNetUsers.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-04-18T10:37:07.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "InterLinked\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T10:30:27.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "InterLinked.csproj",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\InterLinked.csproj",
               "RelativeDocumentMoniker": "InterLinked\\InterLinked.csproj",
-              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\InterLinked.csproj",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Interlinked Current\\InterLinked\\InterLinked\\InterLinked.csproj",
               "RelativeToolTip": "InterLinked\\InterLinked.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-18T10:29:11.349Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-18T10:29:11.349Z"
             }
           ]
         }

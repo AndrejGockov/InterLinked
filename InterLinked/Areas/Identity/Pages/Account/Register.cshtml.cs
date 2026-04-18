@@ -20,8 +20,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
+using Microsoft.AspNetCore.Hosting;
+
+
 namespace InterLinked.Areas.Identity.Pages.Account
 {
+
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<InterlinkedAppUser> _signInManager;
@@ -30,13 +34,15 @@ namespace InterLinked.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<InterlinkedAppUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IWebHostEnvironment _environment;
 
         public RegisterModel(
             UserManager<InterlinkedAppUser> userManager,
             IUserStore<InterlinkedAppUser> userStore,
             SignInManager<InterlinkedAppUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IWebHostEnvironment environment)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -44,6 +50,7 @@ namespace InterLinked.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _environment = environment;
         }
 
         /// <summary>
@@ -108,6 +115,9 @@ namespace InterLinked.Areas.Identity.Pages.Account
             [Required]
             [Display(Name = "Organization Type")]
             public InterlinkedAppUser.UserType organizationType { get; set; }
+
+            [Display(Name = "Upload profile picture")]
+            public IFormFile ProfilePicture { get; set; }
         }
 
 
@@ -124,6 +134,22 @@ namespace InterLinked.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+
+                if (Input.ProfilePicture != null)
+                {
+                    string uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads/profiles");
+                    if (!Directory.Exists(uploadsFolder)) Directory.CreateDirectory(uploadsFolder);
+
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + Input.ProfilePicture.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await Input.ProfilePicture.CopyToAsync(fileStream);
+                    }
+
+                    user.ProfilePicturePath = "/uploads/profiles/" + uniqueFileName;
+                }
 
                 await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
