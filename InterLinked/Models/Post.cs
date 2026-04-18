@@ -11,10 +11,10 @@ namespace InterLinked.Models
         public int PostId { get; set; }
         public required string Title { get; set; }
         public string? Description { get; set; }
-        public DateTime PostedAt { get; set; } = DateTime.UtcNow;
+        public DateTime PostedAt { get; set; } = DateTime.Now;
         public DateTime? ValidTo { get; set; }
         public bool IsActive() {
-            return ValidTo > DateTime.UtcNow ;
+            return ValidTo > DateTime.Now ;
         }
 
         //[NotMapped]

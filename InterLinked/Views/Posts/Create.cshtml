@@ -1,7 +1,7 @@
 ﻿@model InterLinked.Models.Post
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create a new post";
 }
 
 <h1>Create</h1>
@@ -13,27 +13,27 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
+                <label asp-for="Title" class="control-label">Title post</label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+                <label asp-for="Description" class="control-label">Enter a description for the post (Optional)</label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @* <div class="form-group">
                 <label asp-for="PostedAt" class="control-label"></label>
                 <input asp-for="PostedAt" class="form-control" />
                 <span asp-validation-for="PostedAt" class="text-danger"></span>
-            </div>
+            </div> *@
             <div class="form-group">
-                <label asp-for="ValidTo" class="control-label"></label>
+                <label asp-for="ValidTo" class="control-label">Post will be open until date/time:</label>
                 <input asp-for="ValidTo" class="form-control" />
                 <span asp-validation-for="ValidTo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="WebsiteLink" class="control-label"></label>
+                <label asp-for="WebsiteLink" class="control-label">Link to post website (Optional)</label>
                 <input asp-for="WebsiteLink" class="form-control" />
                 <span asp-validation-for="WebsiteLink" class="text-danger"></span>
             </div>
