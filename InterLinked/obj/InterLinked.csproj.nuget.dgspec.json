@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Documents\\Programming\\InterLinked\\InterLinked\\InterLinked.csproj": {}
+    "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\InterLinked.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Documents\\Programming\\InterLinked\\InterLinked\\InterLinked.csproj": {
+    "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\InterLinked.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Documents\\Programming\\InterLinked\\InterLinked\\InterLinked.csproj",
+        "projectUniqueName": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\InterLinked.csproj",
         "projectName": "InterLinked",
-        "projectPath": "C:\\Users\\user\\Documents\\Programming\\InterLinked\\InterLinked\\InterLinked.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Documents\\Programming\\InterLinked\\InterLinked\\obj\\",
+        "projectPath": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\InterLinked.csproj",
+        "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

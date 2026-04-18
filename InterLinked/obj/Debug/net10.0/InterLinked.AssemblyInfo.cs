@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InterLinked")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bd1c966103812a8699fc0ec4a0c663615d1edf6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16b10f6e69195c6eb4bc7deaab84021086c0b921")]
 [assembly: System.Reflection.AssemblyProductAttribute("InterLinked")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InterLinked")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

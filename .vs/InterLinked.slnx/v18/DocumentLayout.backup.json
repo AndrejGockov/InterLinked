@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\angel\\Desktop\\InterLinked\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Data\\Migrations\\20260418103414_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InterLinked\\Data\\Migrations\\20260418103414_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\interlinked.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\interlinked.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20260418103414_test.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Data\\Migrations\\20260418103414_test.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Data\\Migrations\\20260418103414_test.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Data\\Migrations\\20260418103414_test.cs",
+              "RelativeToolTip": "InterLinked\\Data\\Migrations\\20260418103414_test.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T10:34:15.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "InterLinked\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T10:30:27.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InterLinked",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\InterLinked.csproj",
+              "RelativeDocumentMoniker": "InterLinked\\InterLinked.csproj",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\InterLinked.csproj",
+              "RelativeToolTip": "InterLinked\\InterLinked.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-18T10:29:11.349Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
