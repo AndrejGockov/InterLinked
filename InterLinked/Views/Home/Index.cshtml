@@ -3,7 +3,7 @@
 }
 
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
         @* Explore Section *@
         <div class="p-3">
             <ul class="nav flex-column">
@@ -28,7 +28,17 @@
                            asp-area="" asp-controller="Posts" asp-action="Index">
                         @* <i class="bi bi-arrow-up-right-circle me-3 fs-5"></i> *@
                         <button class="btn btn-sm btn-outline-primary">
-                            New Posts
+                            Posts
+                        </button>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10"
+                           asp-area="" asp-controller="Posts" asp-action="Index">
+                        @* <i class="bi bi-arrow-up-right-circle me-3 fs-5"></i> *@
+                        <button class="btn btn-sm btn-outline-primary">
+                            More Opportunities
                         </button>
                     </a>
                 </li>
@@ -46,18 +56,18 @@
                 </li>
 
                 <li class="nav-item mt-4">
-                    <span class="text-uppercase text-muted fw-bold ps-3 mb-2 d-block">
+                    <span class="text-muted fw-bold ps-3 mb-2 d-block">
                         Profile
                     </span>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" href="#">
+                    @* <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10"> *@
                         @* <i class="bi bi-newspaper me-3 fs-5"></i> *@
 
                         @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
                         {
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Posts" asp-action="MyPosts">
+                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="" asp-controller="Posts" asp-action="MyPosts">
                                 <button class="btn btn-sm btn-outline-primary">
                                     My Posts
                                 </button>
@@ -65,17 +75,30 @@
                         }
                         else if (User.IsInRole("Individual"))
                         {
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Applications" asp-action="MyApplications">
+                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="" asp-controller="Applications" asp-action="MyApplications">
                                 <button class="btn btn-sm btn-outline-primary">
                                     My Applications
                                 </button>
                             </a>
                         }
-                    </a>
+                        else
+                        {
+                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="Identity" asp-page="/Account/Register">
+                            <button class="btn btn-sm  btn-outline-primary">
+                                    Register
+                                </button>
+                            </a>
+                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="Identity" asp-page="/Account/Login">
+                            <button class="btn btn-sm  btn-primary">
+                                    Login
+                                </button>
+                            </a>
+                        }
+                    @* </a> *@
                 </li>
 
                 <li class="nav-item mt-4">
-                    <span class="text-uppercase text-muted fw-bold ps-3 mb-2 d-block">
+                    <span class="text-muted fw-bold ps-3 mb-2 d-block">
                         Tools
                     </span>
                 </li>
@@ -97,7 +120,10 @@
     </div>
 
     @* Middle Section*@
-    <div class="col-md-8">
+    <div class="col-md-7">
+
+        @* TODO *@
+        @* Replace with list of latest posts *@
         <div class="text-center">
             <h1 class="display-4">Welcome</h1>
             <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -107,5 +133,6 @@
 
     @* Profile Section *@
     <div class="col-md-2">
+
     </div>
 </div>

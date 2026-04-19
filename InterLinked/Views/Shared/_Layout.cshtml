@@ -20,11 +20,12 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        @* <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Posts" asp-action="Index">Posts</a>                        
+                        </li> *@
 
-                        </li>
-                        @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
+                        @* Adds respective account type's posts *@
+                        @* @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
                             {
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Posts" asp-action="MyPosts">My Posts</a>
@@ -35,7 +36,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Applications" asp-action="MyApplications">My Applications</a>
                             </li>
-                            }
+                            } *@
 
                     </ul>
                     <partial name="_LoginPartial" />
