@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Linker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e85098ff9c0bfa6f0a4e3f0419cebf60ed41886c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+59c043dbd39133fdba5f49d83910d2cfc5e27af4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Linker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Linker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

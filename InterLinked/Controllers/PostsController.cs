@@ -34,16 +34,16 @@ namespace InterLinked.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var post = await _context.Post
+                .Include(p => p.User)
+                .Include(p => p.Applications)
+                    .ThenInclude(a => a.User)
                 .FirstOrDefaultAsync(m => m.PostId == id);
+
             if (post == null)
-            {
                 return NotFound();
-            }
 
             return View(post);
         }

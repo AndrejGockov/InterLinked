@@ -45,4 +45,31 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.PostId">Edit</a> |
     <a asp-action="Index">Back to List</a>
+
+
+    <hr />
+
+    @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
+    {
+        <h4>Applicants</h4>
+
+        @if (Model.Applications != null && Model.Applications.Any())
+        {
+            @foreach (var app in Model.Applications)
+            {
+                <div class="card mb-2 p-2">
+                    <strong>@app.User?.UserName</strong><br />
+                    <small>@app.User?.Email</small><br />
+                    <small class="text-muted">
+                        Applied: @app.AppliedAt.ToString("dd.MM.yyyy HH:mm")
+                    </small>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No applicants yet.</p>
+        }
+    }
+
 </div>

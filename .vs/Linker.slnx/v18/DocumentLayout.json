@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\angel\\Desktop\\InterLinked\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\posts\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\views\\posts\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\applications\\myapplications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -17,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "InterLinked\\Views\\Shared\\_Layout.cshtml",
@@ -43,12 +55,37 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-18T15:30:31.425Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Posts\\Details.cshtml",
+              "RelativeDocumentMoniker": "InterLinked\\Views\\Posts\\Details.cshtml",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Posts\\Details.cshtml",
+              "RelativeToolTip": "InterLinked\\Views\\Posts\\Details.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAcwEgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T09:39:25.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "InterLinked\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T09:19:48.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "MyApplications.cshtml",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Applications\\MyApplications.cshtml",
               "RelativeDocumentMoniker": "InterLinked\\Views\\Applications\\MyApplications.cshtml",
@@ -56,8 +93,7 @@
               "RelativeToolTip": "InterLinked\\Views\\Applications\\MyApplications.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T08:52:55.397Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T08:52:55.397Z"
             },
             {
               "$type": "Document",
@@ -67,35 +103,48 @@
               "RelativeDocumentMoniker": "InterLinked\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "RelativeToolTip": "InterLinked\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAEAAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-19T08:50:26.418Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "InterLinked\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "InterLinked\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAIYAAAAAAAAAAADwv4YAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAowKIAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-19T00:57:33.191Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Posts\\Index.cshtml",
               "RelativeDocumentMoniker": "InterLinked\\Views\\Posts\\Index.cshtml",
               "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Posts\\Index.cshtml",
               "RelativeToolTip": "InterLinked\\Views\\Posts\\Index.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAABRAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAvwEAAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-18T17:18:03.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PostsController.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Controllers\\PostsController.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Controllers\\PostsController.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Controllers\\PostsController.cs",
+              "RelativeToolTip": "InterLinked\\Controllers\\PostsController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAUwDAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T09:40:42.183Z",
               "EditorCaption": ""
             }
           ]
