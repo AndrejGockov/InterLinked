@@ -22,6 +22,16 @@
         <tr>
             <th><h4 class="fw-bold">Post</h4></th>
             <th><h5 class="fw-bold">Status</h5></th>
+
+            @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
+            {
+            <th><h5 class="fw-bold">View post</h5></th>
+            }
+            @if (User.IsInRole("Individual"))
+            {
+                <th><h5 class ="fw-bold">Apply now</h5></th>
+            }
+            
         </tr>
     </thead>
 
@@ -60,8 +70,23 @@
                                 }
                             </div>
                         </td>
-                    </div>
+                        <td>
 
+
+                           
+                            @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
+                            {
+                                <a asp-action="details" asp-route-id="@item.PostId">View post</a><br />
+                            }
+
+
+                            @if (User.IsInRole("Individual"))
+                            {
+                                <a asp-controller="Applications" asp-action="Create" asp-route-postId="@item.PostId">Apply</a>
+                            }
+
+                        </td>
+                    </div>
                 </div>
             </tr>
         }
