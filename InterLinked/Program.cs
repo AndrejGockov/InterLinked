@@ -15,6 +15,7 @@ builder.Services.AddDefaultIdentity<InterlinkedAppUser>(options => options.SignI
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient<AIService>();
 
 var app = builder.Build();
 
