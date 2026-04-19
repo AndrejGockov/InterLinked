@@ -7,20 +7,36 @@
       "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\chats\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\views\\chats\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\applications\\myapplications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\views\\applications\\myapplications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\models\\chatresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\models\\chatresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\models\\chatrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\models\\chatrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\linker.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\linker.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\chats\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\views\\chats\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\models\\chatresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\models\\chatresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\chats\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,24 +51,8 @@
       "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Migrations\\20260419111713_AiModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InterLinked\\Migrations\\20260419111713_AiModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\views\\posts\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -101,6 +101,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\migrations\\20260419100928_applicationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\migrations\\20260419100928_applicationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|c:\\users\\angel\\desktop\\interlinked\\interlinked\\migrations\\20260419111713_aimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84945E96-A3CD-7922-682B-1A68630E69FF}|InterLinked\\Linker.csproj|solutionrelative:interlinked\\migrations\\20260419111713_aimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -110,11 +114,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "InterLinked\\Views\\Shared\\_Layout.cshtml",
@@ -123,34 +127,43 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-18T15:30:31.425Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
+              "Title": "Linker.csproj",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Linker.csproj",
+              "RelativeDocumentMoniker": "InterLinked\\Linker.csproj",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Linker.csproj",
+              "RelativeToolTip": "InterLinked\\Linker.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-19T11:39:57.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ChatsController.cs",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Controllers\\ChatsController.cs",
               "RelativeDocumentMoniker": "InterLinked\\Controllers\\ChatsController.cs",
               "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Controllers\\ChatsController.cs",
               "RelativeToolTip": "InterLinked\\Controllers\\ChatsController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwA4AAABQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T11:12:53.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T11:12:53.099Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
               "Title": "AIService.cs",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Services\\AIService.cs",
               "RelativeDocumentMoniker": "InterLinked\\Services\\AIService.cs",
               "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Services\\AIService.cs",
               "RelativeToolTip": "InterLinked\\Services\\AIService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAYwAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T11:12:33.705Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T11:12:33.705Z"
             },
             {
               "$type": "Document",
@@ -160,22 +173,9 @@
               "RelativeDocumentMoniker": "InterLinked\\appsettings.json",
               "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\appsettings.json",
               "RelativeToolTip": "InterLinked\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-04-19T11:10:35.06Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Chats\\Index.cshtml",
-              "RelativeDocumentMoniker": "InterLinked\\Views\\Chats\\Index.cshtml",
-              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Chats\\Index.cshtml",
-              "RelativeToolTip": "InterLinked\\Views\\Chats\\Index.cshtml",
-              "ViewState": "AgIAAC8AAAAAAAAAAAApwEYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T11:14:44.959Z",
               "EditorCaption": ""
             },
             {
@@ -188,12 +188,11 @@
               "RelativeToolTip": "InterLinked\\Views\\Applications\\MyApplications.cshtml",
               "ViewState": "AgIAACIAAAAAAAAAAAAmwEMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T08:52:55.397Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T08:52:55.397Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ChatRequest.cs",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Models\\ChatRequest.cs",
               "RelativeDocumentMoniker": "InterLinked\\Models\\ChatRequest.cs",
@@ -201,12 +200,11 @@
               "RelativeToolTip": "InterLinked\\Models\\ChatRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T11:13:29.049Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T11:13:29.049Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "ChatResponse.cs",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Models\\ChatResponse.cs",
               "RelativeDocumentMoniker": "InterLinked\\Models\\ChatResponse.cs",
@@ -214,12 +212,35 @@
               "RelativeToolTip": "InterLinked\\Models\\ChatResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T11:13:35.401Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T11:13:35.401Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Program.cs",
+              "RelativeDocumentMoniker": "InterLinked\\Program.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Program.cs",
+              "RelativeToolTip": "InterLinked\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T10:35:31.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Chats\\Index.cshtml",
+              "RelativeDocumentMoniker": "InterLinked\\Views\\Chats\\Index.cshtml",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Chats\\Index.cshtml",
+              "RelativeToolTip": "InterLinked\\Views\\Chats\\Index.cshtml",
+              "ViewState": "AgIAAC8AAAAAAAAAAAApwEYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T11:14:44.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "_LoginPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeDocumentMoniker": "InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
@@ -227,12 +248,11 @@
               "RelativeToolTip": "InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
               "ViewState": "AgIAABIAAAAAAAAAAAAAABYAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T11:21:26.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T11:21:26.376Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Chats\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "InterLinked\\Views\\Chats\\Index.cshtml.cs",
@@ -240,12 +260,11 @@
               "RelativeToolTip": "InterLinked\\Views\\Chats\\Index.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T11:22:27.524Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T11:22:27.524Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 25,
               "Title": "20260419111713_AiModel.cs",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Migrations\\20260419111713_AiModel.cs",
               "RelativeDocumentMoniker": "InterLinked\\Migrations\\20260419111713_AiModel.cs",
@@ -253,12 +272,11 @@
               "RelativeToolTip": "InterLinked\\Migrations\\20260419111713_AiModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T11:17:14.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T11:17:14.212Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "InterLinked\\Views\\Home\\Index.cshtml",
@@ -266,8 +284,7 @@
               "RelativeToolTip": "InterLinked\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAGEAAAAAAAAAAAAvwHkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T00:57:33.191Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T00:57:33.191Z"
             },
             {
               "$type": "Document",
@@ -291,21 +308,7 @@
               "RelativeToolTip": "InterLinked\\Views\\Posts\\Details.cshtml",
               "ViewState": "AgIAAE0AAAAAAAAAAAAAAHEAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T10:55:19.485Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Program.cs",
-              "RelativeDocumentMoniker": "InterLinked\\Program.cs",
-              "ToolTip": "C:\\Users\\angel\\Desktop\\InterLinked\\InterLinked\\Program.cs",
-              "RelativeToolTip": "InterLinked\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T10:35:31.093Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T10:55:19.485Z"
             },
             {
               "$type": "Document",

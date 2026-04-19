@@ -17,6 +17,7 @@ builder.Services.AddDefaultIdentity<InterlinkedAppUser>(options => options.SignI
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<AIService>();
 
+
 var app = builder.Build();
 
 app.UseStaticFiles(); //for cv upload

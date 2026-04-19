@@ -14,32 +14,30 @@ public class AIService
 
     public async Task<string> GetResponse(string userMessage)
     {
-        var apiKey = _config["AI:ApiKey"];
-        var endpoint = _config["AI:Endpoint"];
+        var apiKey = _config["AI:ApiKey"]; // reuse your config key
 
         if (string.IsNullOrWhiteSpace(apiKey))
             return "API key is missing.";
 
-        if (string.IsNullOrWhiteSpace(endpoint))
-            return "API endpoint is missing.";
-
-        var url = $"{endpoint}?key={apiKey}";
+        var url = "https://api.groq.com/openai/v1/chat/completions";
 
         var requestBody = new
         {
-            contents = new[]
+            model = "llama-3.1-8b-instant",
+            messages = new[]
             {
                 new
                 {
-                    parts = new[]
-                    {
-                        new
-                        {
-                            text = $"You are an assistant for Linker, a platform for job, internship, and event applications.\n\nUser: {userMessage}"
-                        }
-                    }
+                    role = "system",
+                    content = "You are an assistant for Linker, a platform for job, internship, and event applications."
+                },
+                new
+                {
+                    role = "user",
+                    content = userMessage
                 }
-            }
+            },
+            temperature = 0.7
         };
 
         var content = new StringContent(
@@ -50,26 +48,26 @@ public class AIService
 
         try
         {
-            var response = await _httpClient.PostAsync(url, content);
+            var request = new HttpRequestMessage(HttpMethod.Post, url);
+            request.Headers.Add("Authorization", $"Bearer {apiKey}");
+            request.Content = content;
+
+            var response = await _httpClient.SendAsync(request);
             var result = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
             {
-                var error = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(error);
-
-                return "AI ERROR: " + error;
+                Console.WriteLine(result);
+                return "AI ERROR: " + result;
             }
 
             dynamic json = JsonConvert.DeserializeObject(result);
 
             var reply =
-                json?.candidates?[0]?.content?.parts?[0]?.text;
+                json?.choices?[0]?.message?.content;
 
             if (reply == null)
-            {
                 return "Invalid response from AI.";
-            }
 
             return reply.ToString();
         }
