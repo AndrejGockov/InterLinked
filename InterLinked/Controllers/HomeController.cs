@@ -1,4 +1,5 @@
 using InterLinked.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,9 +7,19 @@ namespace InterLinked.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly UserManager<InterlinkedAppUser> _userManager;
+
+        public HomeController(UserManager<InterlinkedAppUser> userManager)
         {
-            return View();
+            _userManager = userManager;
+        }
+        
+        public async Task<IActionResult> IndexAsync()
+        {
+            var userId = _userManager.GetUserId(User);
+            InterlinkedAppUser? user = await _userManager.GetUserAsync(User);
+
+            return View(user);
         }
 
         public IActionResult Privacy()

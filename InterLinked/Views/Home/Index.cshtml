@@ -1,4 +1,6 @@
-﻿@{
+﻿@model InterLinked.Models.InterlinkedAppUser
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -62,9 +64,6 @@
                 </li>
 
                 <li class="nav-item">
-                    @* <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10"> *@
-                        @* <i class="bi bi-newspaper me-3 fs-5"></i> *@
-
                         @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
                         {
                         <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="" asp-controller="Posts" asp-action="MyPosts">
@@ -72,7 +71,7 @@
                                 My Posts
                             </button>
                         </a>
-
+                            
                         <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="" asp-controller="Posts" asp-action="Create">
                             <button class="btn btn-sm btn-outline-primary">
                                 Create New Post
@@ -100,7 +99,6 @@
                                 </button>
                             </a>
                         }
-                    @* </a> *@
                 </li>
 
                 <li class="nav-item mt-4">
@@ -139,6 +137,19 @@
 
     @* Profile Section *@
     <div class="col-md-2">
-
+        @if (Model != null)
+        {
+            <div class="card p-2 shadow-sm">
+                <p class="mb-1 text-muted small">Logged in as:</p>
+                <p class="fw-bold">@Model.UserName</p>
+                @* You can add more profile details here since Model is the full InterlinkedAppUser *@
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info py-2 small">
+                Please <a asp-area="Identity" asp-page="/Account/Login">Login</a> to see your profile.
+            </div>
+        }
     </div>
 </div>
