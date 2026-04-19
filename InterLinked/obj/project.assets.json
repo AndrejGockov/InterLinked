@@ -6729,11 +6729,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V2\\InterLinked\\InterLinked\\Linker.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V3\\InterLinked\\Linker.csproj",
       "projectName": "Linker",
-      "projectPath": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V2\\InterLinked\\InterLinked\\Linker.csproj",
+      "projectPath": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V3\\InterLinked\\Linker.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V2\\InterLinked\\InterLinked\\obj\\",
+      "outputPath": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V3\\InterLinked\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
