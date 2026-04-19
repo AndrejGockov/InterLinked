@@ -40,10 +40,19 @@ namespace InterLinked.Controllers
                 .Include(p => p.User)
                 .Include(p => p.Applications)
                     .ThenInclude(a => a.User)
-                .FirstOrDefaultAsync(m => m.PostId == id);
+                .FirstOrDefaultAsync(p => p.PostId == id);
 
             if (post == null)
                 return NotFound();
+
+            var user = await _userManager.GetUserAsync(User);
+
+            bool canViewApplicants =
+                user != null &&
+                post.UserId == user.Id &&
+                user.organizationType != InterlinkedAppUser.UserType.Individual;
+
+            ViewBag.CanViewApplicants = canViewApplicants;
 
             return View(post);
         }

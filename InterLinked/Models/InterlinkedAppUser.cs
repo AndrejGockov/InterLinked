@@ -26,6 +26,8 @@ namespace InterLinked.Models
         public ICollection<Application>? MyApplications { get; set; }
 
 
+        public string? CvPath { get; set; }
+
 
 
 

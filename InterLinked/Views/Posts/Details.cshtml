@@ -1,75 +1,171 @@
 ﻿@model InterLinked.Models.Post
+@inject UserManager<InterLinked.Models.InterlinkedAppUser> UserManager
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Identity
 
 @{
     ViewData["Title"] = "Details";
+
+    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+    var user = User.Identity.IsAuthenticated
+        ? await UserManager.GetUserAsync(User)
+        : null;
+
+    var isIndividual = user?.organizationType == InterlinkedAppUser.UserType.Individual;
+    var isOwner = Model.UserId == userId;
+
+    var alreadyApplied = Model.Applications != null &&
+        Model.Applications.Any(a => a.UserId == userId);
 }
 
-<h1>Details</h1>
+<div class="container mt-4">
 
-<div>
-    <h4>Post</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PostedAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PostedAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ValidTo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValidTo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WebsiteLink)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WebsiteLink)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.PostId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <!-- POST CARD -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
 
+            <h2 class="card-title mb-3">@Model.Title</h2>
 
-    <hr />
+            <div class="mb-3">
+                <span class="badge bg-primary">
+                    Posted: @Model.PostedAt.ToString("dd MMM yyyy")
+                </span>
 
-    @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
-    {
-        <h4>Applicants</h4>
+                <span class="badge bg-warning text-dark ms-2">
+                    Valid until: @(Model.ValidTo?.ToString("dd MMM yyyy") ?? "No expiry date")
+                </span>
+            </div>
 
-        @if (Model.Applications != null && Model.Applications.Any())
-        {
-            @foreach (var app in Model.Applications)
+            <hr />
+
+            <h5>Description</h5>
+            <p style="white-space: pre-line;">
+                @Model.Description
+            </p>
+
+            <hr />
+
+            <h5>Company Link</h5>
+            @if (!string.IsNullOrEmpty(Model.WebsiteLink))
             {
-                <div class="card mb-2 p-2">
-                    <strong>@app.User?.UserName</strong><br />
-                    <small>@app.User?.Email</small><br />
-                    <small class="text-muted">
-                        Applied: @app.AppliedAt.ToString("dd.MM.yyyy HH:mm")
-                    </small>
-                </div>
+                <a href="@Model.WebsiteLink" target="_blank">
+                    Visit Website
+                </a>
             }
-        }
-        else
+            else
+            {
+                <span class="text-muted">No website provided</span>
+            }
+
+            <hr />
+
+            <!-- APPLY SECTION -->
+            @if (User.Identity.IsAuthenticated && isIndividual && !isOwner)
+            {
+                if (alreadyApplied)
+                {
+                    <span class="btn btn-success disabled">
+                        Already Applied
+                    </span>
+                }
+                else
+                {
+                    <a asp-controller="Applications"
+                           asp-action="Create"
+                           asp-route-postId="@Model.PostId"
+                           class="btn btn-primary">
+                        Apply Now
+                    </a>
+                }
+            }
+
+        </div>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="mb-3">
+        @if (isOwner)
         {
-            <p>No applicants yet.</p>
+            <a asp-action="Edit"
+                   asp-route-id="@Model.PostId"
+                   class="btn btn-outline-primary btn-sm">
+                Edit
+            </a>
         }
+        <a asp-action="Index"
+               class="btn btn-primary btn-sm">
+            Back to List
+        </a>
+    </div>
+
+    <!-- APPLICANTS (ONLY OWNER) -->
+    @if (ViewBag.CanViewApplicants == true)
+    {
+        <div class="card shadow-sm mt-4">
+            <div class="card-body">
+
+                <h4 class="mb-3">Applicants</h4>
+
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>CV</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var app in Model.Applications)
+                        {
+                            <tr>
+                                <td>@app.User?.UserName</td>
+                                <td>@app.User?.Email</td>
+
+                                <td>
+                                    @if (!string.IsNullOrEmpty(app.User?.CvPath))
+                                    {
+                                        <a href="@app.User.CvPath" target="_blank">
+                                            View CV
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">No CV</span>
+                                    }
+                                </td>
+
+                                <td>@app.Status</td>
+
+                                <td>
+                                    @if (app.Status == ApplicationStatus.Pending)
+                                    {
+                                        <a asp-controller="Applications"
+                                               asp-action="Approve"
+                                               asp-route-id="@app.ApplicationId"
+                                               class="btn btn-success btn-sm">
+                                            Approve
+                                        </a>
+
+                                        <a asp-controller="Applications"
+                                               asp-action="Reject"
+                                               asp-route-id="@app.ApplicationId"
+                                               class="btn btn-danger btn-sm">
+                                            Reject
+                                        </a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
     }
 
 </div>

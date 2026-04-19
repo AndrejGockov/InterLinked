@@ -78,7 +78,8 @@ namespace InterLinked.Controllers
             {
                 PostId = model.PostId,
                 UserId = user.Id,
-                AppliedAt = DateTime.Now
+                AppliedAt = DateTime.Now,
+                Status = ApplicationStatus.Pending
             };
 
             _context.Applications.Add(application);
@@ -153,5 +154,96 @@ namespace InterLinked.Controllers
 
             return RedirectToAction(nameof(MyApplications));
         }
+
+
+
+
+
+
+        [Authorize]
+        public async Task<IActionResult> Approve(int id)
+        {
+            var application = await _context.Applications
+                .Include(a => a.Post)
+                .FirstOrDefaultAsync(a => a.ApplicationId == id);
+
+            if (application == null)
+                return NotFound();
+
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null)
+                return Unauthorized();
+
+            if (user.organizationType == InterlinkedAppUser.UserType.Individual)
+                return Forbid();
+
+            // MUST own the post
+            if (application.Post?.UserId != user.Id)
+                return Forbid();
+
+            application.Status = ApplicationStatus.Approved;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Details", "Posts", new { id = application.PostId });
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Reject(int id)
+        {
+            var application = await _context.Applications
+                .Include(a => a.Post)
+                .FirstOrDefaultAsync(a => a.ApplicationId == id);
+
+            if (application == null)
+                return NotFound();
+
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null)
+                return Unauthorized();
+
+            if (user.organizationType == InterlinkedAppUser.UserType.Individual)
+                return Forbid();
+
+            // MUST own the post
+            if (application.Post?.UserId != user.Id)
+                return Forbid();
+
+            application.Status = ApplicationStatus.Rejected;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Details", "Posts", new { id = application.PostId });
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> UploadCv(IFormFile cvFile)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null)
+                return Unauthorized();
+
+            if (cvFile != null)
+            {
+                var fileName = Guid.NewGuid() + Path.GetExtension(cvFile.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads", fileName);
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await cvFile.CopyToAsync(stream);
+                }
+
+                user.CvPath = "/uploads/" + fileName;
+                await _userManager.UpdateAsync(user);
+            }
+
+            return RedirectToAction("MyApplications");
+        }
+
     }
 }

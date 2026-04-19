@@ -7,13 +7,23 @@ namespace InterLinked.Models
         [Key]
         public int ApplicationId { get; set; }
 
-        // FK (this is what you actually save)
+        // FK (user who applied)
         public string UserId { get; set; } = null!;
         public InterlinkedAppUser? User { get; set; }
 
+        // FK (post applied to)
         public int PostId { get; set; }
         public Post? Post { get; set; }
 
         public DateTime AppliedAt { get; set; } = DateTime.Now;
+        public ApplicationStatus Status { get; set; } = ApplicationStatus.Pending;
     }
+
+    public enum ApplicationStatus
+    {
+        Pending,
+        Approved,
+        Rejected
+    }
+
 }
