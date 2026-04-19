@@ -1,4 +1,4 @@
-# InterLinked
+# InterLinked - Linker Hackathon
 
 Application made for the Linker Hackathon, Making life easier for Students seeking Internships and helps Companies manage event posts all in one place.
 
