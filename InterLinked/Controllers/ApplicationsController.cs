@@ -23,7 +23,7 @@ namespace InterLinked.Controllers
         // -------------------------
         // USERS CAN VIEW WHERE THEY'VE APPLIED
         // -------------------------
-        [Authorize]
+        [Authorize(Roles = "Personal")]
         public async Task<IActionResult> Index()
         {
             var userId = _userManager.GetUserId(User);
@@ -42,13 +42,14 @@ namespace InterLinked.Controllers
         // GET: APPLY PAGE
         // /Applications/Create?postId=5
         // -------------------------
-        [Authorize]
+        
         [HttpGet]
-        public IActionResult Create(int id)
+        [Authorize(Roles = "Personal")]
+        public IActionResult Create(int PostId)
         {
             return View(new Application
             {
-                PostId = id
+                PostId = PostId
             });
         }
 
@@ -57,7 +58,7 @@ namespace InterLinked.Controllers
         // -------------------------
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Personal")]
         public async Task<IActionResult> Create(Application model)
         {
             var user = await _userManager.GetUserAsync(User);
@@ -101,7 +102,7 @@ namespace InterLinked.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [Authorize]
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> Approve(int id)
         {
             var application = await _context.Applications
@@ -130,7 +131,7 @@ namespace InterLinked.Controllers
             return RedirectToAction("Details", "Posts", new { id = application.PostId });
         }
 
-        [Authorize]
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> Reject(int id)
         {
             var application = await _context.Applications
@@ -161,7 +162,7 @@ namespace InterLinked.Controllers
 
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Personal")]
         public async Task<IActionResult> UploadCv(IFormFile cvFile)
         {
             var user = await _userManager.GetUserAsync(User);
@@ -183,7 +184,7 @@ namespace InterLinked.Controllers
                 await _userManager.UpdateAsync(user);
             }
 
-            return RedirectToAction("MyApplications");
+            return RedirectToAction("Index");
         }
 
     }

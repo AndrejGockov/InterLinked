@@ -26,9 +26,5 @@ namespace InterLinked.Models
 
 
         public string? CvPath { get; set; }
-
-
-
-
     }
 }
