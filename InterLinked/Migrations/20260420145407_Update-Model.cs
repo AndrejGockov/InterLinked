@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Linker.Migrations
+namespace InterLinked.Migrations
 {
     /// <inheritdoc />
     public partial class UpdateModel : Migration

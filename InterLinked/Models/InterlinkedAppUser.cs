@@ -11,7 +11,7 @@ namespace InterLinked.Models
             Personal,
             Company
         }
-
+        public string? CompanyDescription { get; set; } 
         public required UserType organizationType { get; set; }
 
         [NotMapped]
@@ -24,6 +24,11 @@ namespace InterLinked.Models
         public ICollection<Post>? MyPosts { get; set; }
         public ICollection<Application>? MyApplications { get; set; }
 
+
+        public string? InstagramUrl { get; set; }
+        public string? FacebookUrl { get; set; }
+        public string? LinkedInUrl { get; set; }
+        public string? TwitterUrl { get; set; }
 
         public string? CvPath { get; set; }
     }

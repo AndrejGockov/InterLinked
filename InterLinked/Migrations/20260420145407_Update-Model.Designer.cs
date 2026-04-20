@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Linker.Migrations
+namespace InterLinked.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20260420145407_Update-Model")]

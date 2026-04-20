@@ -29,7 +29,7 @@ public class AIService
                 new
                 {
                     role = "system",
-                    content = "You are an assistant for Linker, a platform for job, internship, and event applications."
+                    content = "You are an assistant for InterLinked, a platform for job, internship, and event applications."
                 },
                 new
                 {

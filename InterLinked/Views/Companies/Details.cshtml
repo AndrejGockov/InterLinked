@@ -1,0 +1,81 @@
+﻿@model InterLinked.Models.InterlinkedAppUser
+
+<div class="container mt-5">
+    <div class="row align-items-start">
+        <!-- LEFT: Contact Box -->
+        <div class="col-md-4 border-end pe-4">
+            <div class="text-center mb-4">
+                <div class="bg-white border rounded shadow-sm d-flex align-items-center justify-content-center overflow-hidden mx-auto" style="height: 180px; width: 180px;">
+                    <img src="@(Model.ProfilePicturePath ?? "/images/default.png")" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                </div>
+            </div>
+            <div class="p-4 bg-light rounded shadow-sm">
+                <h2 class="fw-bold mb-1 fs-4 text-center">@Model.UserName</h2>
+                <hr class="my-3" />
+                <h6 class="text-uppercase fw-bold text-muted small mb-3">Contact Info</h6>
+                <p class="small mb-2"><i class="bi bi-envelope-fill me-2 text-primary"></i><strong>Email:</strong> @Model.Email</p>
+                @if (!string.IsNullOrEmpty(Model.PhoneNumber))
+                {
+                    <p class="small mb-2">
+                        <i class="bi bi-telephone-fill me-2 text-primary"></i><strong>Phone:</strong>
+                        @System.Text.RegularExpressions.Regex.Replace(Model.PhoneNumber, ".{3}", "$0-").TrimEnd('-')
+                    </p>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.InstagramUrl) || !string.IsNullOrEmpty(Model.FacebookUrl) ||
+                     !string.IsNullOrEmpty(Model.LinkedInUrl) || !string.IsNullOrEmpty(Model.TwitterUrl))
+                {
+                    <hr class="my-3" />
+                    <h6 class="text-uppercase fw-bold text-muted small mb-3">Social Media</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        @if (!string.IsNullOrEmpty(Model.InstagramUrl))
+                        {
+                            <a href="@Model.InstagramUrl" target="_blank" class="btn btn-sm btn-outline-danger">
+                                <i class="bi bi-instagram me-1"></i>Instagram
+                            </a>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.FacebookUrl))
+                        {
+                            <a href="@Model.FacebookUrl" target="_blank" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-facebook me-1"></i>Facebook
+                            </a>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.LinkedInUrl))
+                        {
+                            <a href="@Model.LinkedInUrl" target="_blank" class="btn btn-sm btn-outline-info">
+                                <i class="bi bi-linkedin me-1"></i>LinkedIn
+                            </a>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.TwitterUrl))
+                        {
+                            <a href="@Model.TwitterUrl" target="_blank" class="btn btn-sm btn-outline-dark">
+                                <i class="bi bi-twitter-x me-1"></i>Twitter
+                            </a>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- RIGHT: Description & Posts -->
+        <div class="col-md-8 ps-4">
+            <h4 class="fw-bold text-uppercase text-secondary mb-2" style="font-size: 0.8rem; letter-spacing: 1px;">About Us</h4>
+            <p style="white-space: pre-line; line-height: 1.6; color: #333;">
+                @(string.IsNullOrEmpty(Model.CompanyDescription) ? "No description provided." : Model.CompanyDescription)
+            </p>
+            <hr class="my-5" />
+            <h4 class="fw-bold mb-4">Current Openings</h4>
+            <div class="list-group border-0">
+                @foreach (var post in Model.MyPosts?.OrderByDescending(p => p.PostedAt) ?? Enumerable.Empty<Post>())
+                {
+                    <a asp-controller="Posts" asp-action="Details" asp-route-id="@post.PostId" class="list-group-item list-group-item-action shadow-sm mb-2 rounded border-0 p-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div><h6 class="fw-bold mb-0">@post.Title</h6><small class="text-muted">@post.PostedAt.ToShortDateString()</small></div>
+                            <span class="btn btn-sm btn-primary">Details</span>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
