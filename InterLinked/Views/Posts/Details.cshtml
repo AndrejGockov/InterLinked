@@ -12,7 +12,7 @@
         ? await UserManager.GetUserAsync(User)
         : null;
 
-    var isIndividual = user?.organizationType == InterlinkedAppUser.UserType.Individual;
+    var isIndividual = user?.organizationType == InterlinkedAppUser.UserType.Personal;
     var isOwner = Model.UserId == userId;
 
     var alreadyApplied = Model.Applications != null &&

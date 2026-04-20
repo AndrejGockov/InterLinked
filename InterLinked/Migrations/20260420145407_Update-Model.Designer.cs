@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Linker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260419115535_initialMigration")]
-    partial class initialMigration
+    [Migration("20260420145407_Update-Model")]
+    partial class UpdateModel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

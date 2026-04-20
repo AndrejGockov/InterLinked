@@ -54,7 +54,7 @@
                     </li>
 
                     <li class="nav-item">
-                        @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
+                        @if (User.IsInRole("Company"))
                         {
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="" asp-controller="Posts" asp-action="MyPosts">
                                 <button class="btn btn-sm btn-outline-primary">
@@ -68,9 +68,9 @@
                                 </button>
                             </a>
                         }
-                        else if (User.IsInRole("Individual"))
+                        else if (User.IsInRole("Personal"))
                         {
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="" asp-controller="Applications" asp-action="MyApplications">
+                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="" asp-controller="Applications" asp-action="Index">
                                 <button class="btn btn-sm btn-outline-primary">
                                     My Applications
                                 </button>

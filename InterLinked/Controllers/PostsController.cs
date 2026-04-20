@@ -50,7 +50,7 @@ namespace InterLinked.Controllers
             bool canViewApplicants =
                 user != null &&
                 post.UserId == user.Id &&
-                user.organizationType != InterlinkedAppUser.UserType.Individual;
+                user.organizationType != InterlinkedAppUser.UserType.Personal;
 
             ViewBag.CanViewApplicants = canViewApplicants;
 
@@ -58,6 +58,7 @@ namespace InterLinked.Controllers
         }
 
         // GET: Posts/Create
+        [Authorize(Roles = "Company")]
         public IActionResult Create()
         {
             return View();
@@ -68,7 +69,7 @@ namespace InterLinked.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> Create(Post post)
         {
             if (!ModelState.IsValid)
@@ -95,8 +96,8 @@ namespace InterLinked.Controllers
             return RedirectToAction(nameof(MyPosts));
         }
 
-    // GET: Posts/Edit/5
-    public async Task<IActionResult> Edit(int? id)
+        [Authorize(Roles = "Company")]
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -116,7 +117,7 @@ namespace InterLinked.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> Edit(int id, [Bind("PostId,Title,Description,PostedAt,ValidTo,WebsiteLink")] Post post)
         {
             if (id != post.PostId)
@@ -146,7 +147,7 @@ namespace InterLinked.Controllers
             return View(post);
         }
 
-        // GET: Posts/Delete/5
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -165,7 +166,7 @@ namespace InterLinked.Controllers
         }
 
         // POST: Posts/Delete/5
-        [Authorize]
+        [Authorize(Roles = "Company")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -194,7 +195,7 @@ namespace InterLinked.Controllers
 
 
 
-        [Authorize]
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> MyPosts()
         {
             var userId = _userManager.GetUserId(User);

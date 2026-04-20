@@ -21,16 +21,21 @@ namespace InterLinked.Controllers
         }
 
         // -------------------------
-        // INDEX (ALL APPLICATIONS)
+        // USERS CAN VIEW WHERE THEY'VE APPLIED
         // -------------------------
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var applications = _context.Applications
-                .Include(a => a.Post)
-                .Include(a => a.User);
+            var userId = _userManager.GetUserId(User);
 
-            return View(await applications.ToListAsync());
+            var applications = await _context.Applications
+            .Include(a => a.Post)
+                .ThenInclude(p => p.User)
+            .Where(a => a.UserId == userId)
+            .OrderByDescending(a => a.AppliedAt)
+            .ToListAsync();
+
+            return View(applications);
         }
 
         // -------------------------
@@ -60,7 +65,7 @@ namespace InterLinked.Controllers
             if (user == null)
                 return Unauthorized();
 
-            if (user.organizationType != InterlinkedAppUser.UserType.Individual)
+            if (user.organizationType != InterlinkedAppUser.UserType.Personal)
                 return Forbid();
 
             // Validate Post exists (IMPORTANT FIX)
@@ -72,7 +77,7 @@ namespace InterLinked.Controllers
                 .AnyAsync(a => a.PostId == model.PostId && a.UserId == user.Id);
 
             if (alreadyApplied)
-                return RedirectToAction(nameof(MyApplications));
+                return RedirectToAction(nameof(Index));
 
             var application = new Application
             {
@@ -93,72 +98,8 @@ namespace InterLinked.Controllers
                 return BadRequest(ex.InnerException?.Message ?? ex.Message);
             }
 
-            return RedirectToAction(nameof(MyApplications));
+            return RedirectToAction(nameof(Index));
         }
-
-        // -------------------------
-        // MY APPLICATIONS
-        // -------------------------
-        [Authorize]
-        public async Task<IActionResult> MyApplications()
-        {
-            var userId = _userManager.GetUserId(User);
-
-            var applications = await _context.Applications
-            .Include(a => a.Post)
-                .ThenInclude(p => p.User)
-            .Where(a => a.UserId == userId)
-            .OrderByDescending(a => a.AppliedAt)
-            .ToListAsync();
-
-            return View(applications);
-        }
-
-        // -------------------------
-        // DELETE APPLICATION
-        // -------------------------
-        [Authorize]
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-                return NotFound();
-
-            var application = await _context.Applications
-                .Include(a => a.Post)
-                .Include(a => a.User)
-                .FirstOrDefaultAsync(a => a.ApplicationId == id);
-
-            if (application == null)
-                return NotFound();
-
-            return View(application);
-        }
-
-        [Authorize]
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var application = await _context.Applications.FindAsync(id);
-
-            if (application == null)
-                return NotFound();
-
-            var userId = _userManager.GetUserId(User);
-
-            if (application.UserId != userId)
-                return Forbid();
-
-            _context.Applications.Remove(application);
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(MyApplications));
-        }
-
-
-
-
-
 
         [Authorize]
         public async Task<IActionResult> Approve(int id)
@@ -175,7 +116,7 @@ namespace InterLinked.Controllers
             if (user == null)
                 return Unauthorized();
 
-            if (user.organizationType == InterlinkedAppUser.UserType.Individual)
+            if (user.organizationType == InterlinkedAppUser.UserType.Personal)
                 return Forbid();
 
             // MUST own the post
@@ -204,7 +145,7 @@ namespace InterLinked.Controllers
             if (user == null)
                 return Unauthorized();
 
-            if (user.organizationType == InterlinkedAppUser.UserType.Individual)
+            if (user.organizationType == InterlinkedAppUser.UserType.Personal)
                 return Forbid();
 
             // MUST own the post

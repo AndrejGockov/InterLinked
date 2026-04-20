@@ -1,5 +1,4 @@
 wwwroot\css\site.css
-wwwroot\css\theme.css
 wwwroot\favicon.ico
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -64,8 +63,9 @@ wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\uploads\0f38187e-4f10-433b-976f-8b4dfe21272e.pdf
 wwwroot\uploads\4b43c273-29ed-4ffc-8646-506f57b71120.pdf
-wwwroot\uploads\aa6624bb-87e7-4200-9a25-70f319a68a3c.jpg
 wwwroot\uploads\f56d7b33-d66f-4ff1-a697-e0a40e835525.pdf
+wwwroot\css\theme.css
+wwwroot\uploads\aa6624bb-87e7-4200-9a25-70f319a68a3c.jpg
 C:\Users\user\Documents\Programming\InterLinked_V4\InterLinked\wwwroot\css\theme.css
 C:\Users\user\Documents\Programming\InterLinked_V4\InterLinked\wwwroot\favicon.ico
 C:\Users\user\Documents\Programming\InterLinked_V4\InterLinked\wwwroot\js\site.js

@@ -8,8 +8,7 @@ namespace InterLinked.Models
     {
         public enum UserType
         {
-            Individual,
-            StudentOrganization,
+            Personal,
             Company
         }
 

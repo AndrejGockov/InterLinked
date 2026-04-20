@@ -1,47 +1,68 @@
 ﻿@model IEnumerable<InterLinked.Models.Application>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "My Applications";
 }
 
-<h1>Index</h1>
+<h1>My Applications</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<form asp-action="UploadCv" method="post" enctype="multipart/form-data">
+    <input type="file" name="cvFile" />
+    <button type="submit">Upload CV</button>
+</form>
+
+<p>View every job, internship and event you've applied to since joining <strong>Linker</strong></p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AppliedAt)
-            </th>
-            <th></th>
+            <th><h4 class="fw-bold">Post</h4></th>
+            <th><h5 class="fw-bold">Applied</h5></th>
+            <th><h5 class="fw-bold">View</h5></th>
         </tr>
     </thead>
+
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Post.PostId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AppliedAt)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ApplicationId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ApplicationId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ApplicationId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <!-- POST INFO -->
+                <td style="width: 70%;">
+                    <div class="mb-1 d-flex align-items-baseline">
+                        <h4 class="fw-bold me-2">@item.Post?.Title</h4>
+                        <p class="text-muted">@item.Post?.PostedAt.ToString("dd.MM.yyyy")</p>
+                    </div>
+
+                    <div>
+                        <p class="fw-bold fs-6 m-0">Description</p>
+                        <p>
+                            @(item.Post?.Description?.Length > 80
+                                ? item.Post?.Description.Substring(0, 80) + "..."
+                                : item.Post?.Description)
+                        </p>
+                    </div>
+                </td>
+
+                <!-- APPLIED DATE -->
+                <td class="text-start align-middle text-nowrap" style="width: 15%;">
+                    @item.AppliedAt.ToString("HH:mm | dd.MM.yyyy")
+                </td>
+
+                <!-- VIEW POST BUTTON -->
+                <td class="align-middle text-nowrap" style="width: 15%;">
+                    @if (item.PostId != 0)
+                    {
+                        <a asp-controller="Posts"
+                               asp-action="Details"
+                               asp-route-id="@item.PostId"
+                               class="btn btn-primary btn-sm">
+                            View Post
+                        </a>
+                    }
+                </td>
+
+            </tr>
+        }
     </tbody>
 </table>
