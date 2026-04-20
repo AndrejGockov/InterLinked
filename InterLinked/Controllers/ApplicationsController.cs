@@ -39,11 +39,11 @@ namespace InterLinked.Controllers
         // -------------------------
         [Authorize]
         [HttpGet]
-        public IActionResult Create(int postId)
+        public IActionResult Create(int id)
         {
             return View(new Application
             {
-                PostId = postId
+                PostId = id
             });
         }
 
