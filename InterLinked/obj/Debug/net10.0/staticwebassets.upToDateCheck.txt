@@ -68,9 +68,10 @@ wwwroot\uploads\aa6624bb-87e7-4200-9a25-70f319a68a3c.jpg
 wwwroot\uploads\afcf38d5-4271-4696-a0c2-eafa9ecd0532.jpg
 wwwroot\uploads\f56d7b33-d66f-4ff1-a697-e0a40e835525.pdf
 wwwroot\uploads\profiles\99072ffc-141b-44f8-b127-91d26e2383c1_logo.png
-C:\Users\angel\Desktop\InterLinked\InterLinked\wwwroot\css\site.css
-C:\Users\angel\Desktop\InterLinked\InterLinked\wwwroot\css\theme.css
+wwwroot\uploads\profiles\c5d40058-fc67-461b-9219-e161903bf1be_logo.png
 C:\Users\angel\Desktop\InterLinked\InterLinked\wwwroot\favicon.ico
+C:\Users\angel\Desktop\InterLinked\InterLinked\wwwroot\css\theme.css
+C:\Users\angel\Desktop\InterLinked\InterLinked\wwwroot\css\site.css
 C:\Users\angel\Desktop\InterLinked\InterLinked\wwwroot\js\site.js
 C:\Users\angel\Desktop\InterLinked\InterLinked\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\angel\Desktop\InterLinked\InterLinked\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

@@ -45,16 +45,12 @@ namespace InterLinked.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Profile Picture")]
             public IFormFile ProfilePicture { get; set; }
 
-            [Display(Name = "Instagram")]
+            // FIX: Added to satisfy the 'required' constraint in the User model
+            public InterlinkedAppUser.UserType OrganizationType { get; set; }
+
             public string InstagramUrl { get; set; }
-
-            [Display(Name = "Facebook")]
             public string FacebookUrl { get; set; }
-
-            [Display(Name = "LinkedIn")]
             public string LinkedInUrl { get; set; }
-
-            [Display(Name = "Twitter / X")]
             public string TwitterUrl { get; set; }
         }
 
@@ -69,6 +65,7 @@ namespace InterLinked.Areas.Identity.Pages.Account.Manage
             {
                 PhoneNumber = phoneNumber,
                 CompanyDescription = user.CompanyDescription,
+                OrganizationType = user.organizationType, // FIX: Load existing type
                 InstagramUrl = user.InstagramUrl,
                 FacebookUrl = user.FacebookUrl,
                 LinkedInUrl = user.LinkedInUrl,
@@ -91,27 +88,18 @@ namespace InterLinked.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return NotFound();
 
-            if (!ModelState.IsValid)
-            {
-                await LoadAsync(user);
-                return Page();
-            }
-
-            // 1. Update Phone
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
-                await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-
-            // 2. Update Description
+            // 1. Update basic properties directly to avoid validation loops
+            user.PhoneNumber = Input.PhoneNumber;
             user.CompanyDescription = Input.CompanyDescription;
-
-            // 3. Update Social Media
             user.InstagramUrl = Input.InstagramUrl;
             user.FacebookUrl = Input.FacebookUrl;
             user.LinkedInUrl = Input.LinkedInUrl;
             user.TwitterUrl = Input.TwitterUrl;
 
-            // 4. Handle File Upload
+            // Ensure the required enum is passed back
+            user.organizationType = Input.OrganizationType;
+
+            // 2. File Upload Logic
             if (Input.ProfilePicture != null)
             {
                 string folder = Path.Combine(_environment.WebRootPath, "uploads/profiles");
@@ -123,23 +111,26 @@ namespace InterLinked.Areas.Identity.Pages.Account.Manage
                     if (System.IO.File.Exists(oldPath)) System.IO.File.Delete(oldPath);
                 }
 
-                string fileName = Guid.NewGuid().ToString() + "_" + Input.ProfilePicture.FileName;
+                string fileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(Input.ProfilePicture.FileName);
                 string filePath = Path.Combine(folder, fileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     await Input.ProfilePicture.CopyToAsync(fileStream);
                 }
-
                 user.ProfilePicturePath = "/uploads/profiles/" + fileName;
             }
 
-            // 5. Save
+            // 3. Save
             var updateResult = await _userManager.UpdateAsync(user);
             if (!updateResult.Succeeded)
             {
-                StatusMessage = "Error updating profile.";
-                return RedirectToPage();
+                foreach (var error in updateResult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+                await LoadAsync(user);
+                return Page();
             }
 
             await _signInManager.RefreshSignInAsync(user);
