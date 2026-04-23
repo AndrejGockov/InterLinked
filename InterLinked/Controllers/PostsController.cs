@@ -88,7 +88,17 @@ namespace InterLinked.Controllers
                 return Unauthorized();
 
             post.UserId = userId;
+
             post.PostedAt = DateTime.Now;
+
+            if (post.ValidTo < post.PostedAt)
+            {
+                ModelState.AddModelError("ValidTo", "ValidTo Date can't be in the in past");
+            }
+
+            if (!ModelState.IsValid) {
+                return View(post);
+            }
 
             _context.Post.Add(post);
             await _context.SaveChangesAsync();
@@ -212,5 +222,30 @@ namespace InterLinked.Controllers
 
             return View(posts);
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetPostsJson()
+        {
+            var posts = await _context.Post
+                .Include(p => p.User)
+                .OrderByDescending(p => p.PostedAt)
+                .Select(p => new
+                {
+                    id = p.PostId,
+                    title = p.Title,
+                    description = p.Description,
+                    // We format these here so JS doesn't have to guess
+                    postedAt = p.PostedAt.ToString("dd.MM.yyyy"),
+                    validTo = p.ValidTo.HasValue ? p.ValidTo.Value.ToString("dd.MM.yyyy") : "No Expiration",
+                    // Check if active: if no expiry, it's true. If expiry, check if future.
+                    isActive = !p.ValidTo.HasValue || p.ValidTo > DateTime.Now,
+                    companyName = p.User.UserName
+                })
+                .ToListAsync();
+
+            return Json(new { data = posts });
+        }
+
     }
 }

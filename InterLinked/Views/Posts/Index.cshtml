@@ -4,180 +4,260 @@
     ViewData["Title"] = "Internships/job Posts";
 }
 
+<style>
+    .post-list-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 
-<div class="row">
-    <div class="col-md-6">
-        <h1 class="fw-bold mb-2">Latest Posts</h1>
-        <p>Discover new opportunities on <strong>InterLinked</strong></p>
+    .post-row-item {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        background: #fff;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.2s ease;
+    }
+
+    .post-row-item:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        border-color: #d1d5db;
+        transform: translateX(4px);
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .post-main-content {
+        flex: 1;
+    }
+
+    .post-status-area {
+        width: 200px;
+        text-align: right;
+        padding: 0 1.5rem;
+    }
+
+    /* Updated to match your <td> badge style */
+    .badge-status {
+        font-size: 1rem; /* Matches fs-6 */
+        padding: 0.4rem 0.8rem;
+        border-radius: 8px;
+        font-weight: 500;
+        display: inline-block;
+        color: #fff !important;
+    }
+
+    .status-active { background-color: #198754 !important; }
+    .status-expired { background-color: #dc3545 !important; }
+
+    #searchInput {
+        max-width: 350px;
+        border-radius: 8px;
+    }
+
+    .no-results {
+        display: none;
+        padding: 3rem;
+        text-align: center;
+        color: #6b7280;
+    }
+
+    .pagination .page-link {
+        color: #374151;
+        border: none;
+        margin: 0 2px;
+        border-radius: 6px;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #374151;
+        color: #fff;
+    }
+</style>
+
+<div class="container-fluid px-4 mt-4">
+    <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
+        <div>
+            <h2 class="fw-bold mb-0">Latest Posts</h2>
+            <p class="text-muted mb-0">Find your next opportunity on InterLinked</p>
+        </div>
+        <input type="text" id="searchInput" class="form-control" placeholder="Search posts..." />
     </div>
-    @* <div class="col-md-6 d-flex flex-column justify-content-end align-items-end">
-        <p>
-            <a asp-action="Create" class="btn btn-primary fw-bold">Create New Post</a>
-        </p>
-    </div> *@
+
+    <div class="post-list-container" id="postsContainer"></div>
+
+    <div class="no-results" id="noResults">
+        <h5>No posts found.</h5>
+        <p>Try a different search term.</p>
+    </div>
+
+    <nav class="mt-5 d-flex justify-content-center" id="paginationNav">
+        <ul class="pagination shadow-sm p-1 bg-white rounded" id="pagination"></ul>
+    </nav>
 </div>
 
-<table class="table table-striped table-hover align-middle">
-    <thead>
-        <tr>
-            <th><h4 class="fw-bold">Post</h4></th>
-            <th><h5 class="fw-bold">Status</h5></th>
+@section Scripts {
+    <script>
+        const PAGE_SIZE = 6;
+        let allPosts = [];
+        let filtered = [];
+        let currentPage = 1;
 
-            @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
-            {
-            <th><h5 class="fw-bold">View post</h5></th>
-            }
-            @if (User.IsInRole("Individual"))
-            {
-                <th><h5 class ="fw-bold">Apply now</h5></th>
-            }
+        /**
+         * Renders the list of posts based on search and pagination
+         */
+        function renderPosts() {
+            const container = document.getElementById('postsContainer');
+            const noResults = document.getElementById('noResults');
             
-        </tr>
-    </thead>
+            // Calculate total pages
+            const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
 
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <div class="container">
-                    <div class="row align-items-center">
-                        <td class="col-md-10">
-                            <div class="">
-                                <div class="mb-1 d-flex align-items-baseline">
-                                    <h4 class="fw-bold me-2">@item.Title</h4>
-                                    <p class="">@item.PostedAt.ToString("dd.MM.yyyy")</p>
-                                </div>
-                        
-                                <div>
-                                    <p class="fw-bold fs-6 m-0">Description</p>
-                                    <p>
-                                        @(item.Description?.Length > 100
-                                                ? item.Description.Substring(0, 100) + "..."
-                                                : item.Description)
-                                    </p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="col-md-2 align-items-baseline">
-                            <div class="align-items-baseline">
-                                @if (item.IsActive())
-                                {
-                                    <span class="badge bg-success fs-6">Active Until: @(item.ValidTo?.ToString("dd.MM.yyyy") ?? "No Expiration")</span>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-danger fs-6">Expired on: @(item.ValidTo?.ToString("dd.MM.yyyy") ?? "No Expiration")</span>
-                                }
-                            </div>
-                        </td>
-                        <td>
+            // Bounds safety
+            if (currentPage > totalPages && totalPages > 0) currentPage = totalPages;
+            if (currentPage < 1) currentPage = 1;
 
+            const start = (currentPage - 1) * PAGE_SIZE;
+            const pageItems = filtered.slice(start, start + PAGE_SIZE);
 
-                           
-                            @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
-                            {
-                                <a asp-action="details" asp-route-id="@item.PostId">View post</a><br />
-                            }
+            container.innerHTML = '';
 
+            // Handle No Results visibility
+            if (filtered.length === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
 
-                            @if (User.IsInRole("Individual"))
-                            {
-                                <a asp-controller="Applications" asp-action="Create" asp-route-postId="@item.PostId">Apply</a>
-                            }
+            // Generate HTML for each post
+            pageItems.forEach(p => {
+                const badgeClass = p.isActive ? 'status-active' : 'status-expired';
+                
+                // If post is not active (expired), show "Expired", otherwise show the date
+                const statusText = p.isActive ? p.validTo : "Expired";
 
-                        </td>
+                const row = document.createElement('a');
+                row.href = `/Posts/Details/${p.id}`;
+                row.className = 'post-row-item';
+                row.innerHTML = `
+                    <div class="post-main-content">
+                        <div class="d-flex align-items-baseline gap-2 mb-1">
+                            <h5 class="fw-bold mb-0">${p.title}</h5>
+                            <small class="text-muted">${p.postedAt}</small>
+                        </div>
+                        <div class="text-primary small mb-1 fw-semibold">${p.companyName}</div>
+                        <p class="text-secondary mb-0 small text-truncate" style="max-width: 500px;">
+                            ${p.description || 'No description available.'}
+                        </p>
                     </div>
-                </div>
-            </tr>
+                    <div class="post-status-area d-none d-md-block">
+                        <span class="badge-status ${badgeClass}">${statusText}</span>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+
+            // Always render pagination
+            renderPagination(totalPages);
         }
-    </tbody>
-</table>
 
+        /**
+         * Builds the pagination UI
+         */
+        function renderPagination(totalPages) {
+            const nav = document.getElementById('paginationNav');
+            const ul = document.getElementById('pagination');
+            ul.innerHTML = '';
 
-@* ---- OLD LAYOUT ---- *@
+            // Force visibility
+            nav.classList.remove('d-none');
+            nav.classList.add('d-flex');
 
+            const safeTotalPages = totalPages < 1 ? 1 : totalPages;
 
-@* <h1>Current Internships/job Posts</h1>
+            // Helper to create page buttons
+            const createPageItem = (label, targetPage, isCurrent, isDisabled) => {
+                const li = document.createElement('li');
+                li.className = `page-item ${isCurrent ? 'active' : ''} ${isDisabled ? 'disabled' : ''}`;
+                
+                const a = document.createElement('a');
+                a.className = 'page-link';
+                a.href = 'javascript:void(0)';
+                a.innerHTML = label;
+                
+                if (!isDisabled && !isCurrent) {
+                    a.onclick = () => {
+                        currentPage = targetPage;
+                        renderPosts();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    };
+                }
+                
+                li.appendChild(a);
+                return li;
+            };
 
+            // 1. First & Previous
+            ul.appendChild(createPageItem('First', 1, false, currentPage === 1));
+            ul.appendChild(createPageItem('&laquo;', currentPage - 1, false, currentPage === 1));
 
-@if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
-{
-<p>
-    <a asp-action="Create" class="btn btn-primary">Create New Post</a>
-</p>
+            // 2. Dynamic Page Numbers
+            if (filtered.length > 0) {
+                let start = Math.max(1, currentPage - 2);
+                let end = Math.min(safeTotalPages, currentPage + 2);
+
+                for (let i = start; i <= end; i++) {
+                    ul.appendChild(createPageItem(i, i, i === currentPage, false));
+                }
+            } else {
+                // Default view when empty
+                ul.appendChild(createPageItem('1', 1, true, true));
+            }
+
+            // 3. Next & Last
+            ul.appendChild(createPageItem('&raquo;', currentPage + 1, false, currentPage === safeTotalPages));
+            ul.appendChild(createPageItem('Last', safeTotalPages, false, currentPage === safeTotalPages));
+        }
+
+        /**
+         * Initial Data Fetch
+         */
+        async function loadPosts() {
+            try {
+                const res = await fetch('/Posts/GetPostsJson');
+                const json = await res.json();
+                
+                // Maps to the "data" property in your JSON result
+                allPosts = json.data || []; 
+                filtered = [...allPosts];
+                
+                renderPosts();
+            } catch (err) {
+                console.error("Error loading posts:", err);
+            }
+        }
+
+        /**
+         * Live Search Listener
+         */
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const q = this.value.toLowerCase();
+            
+            filtered = allPosts.filter(p => 
+                (p.title || '').toLowerCase().includes(q) || 
+                (p.companyName || '').toLowerCase().includes(q) ||
+                (p.description || '').toLowerCase().includes(q)
+            );
+            
+            currentPage = 1; // Always reset to page 1 on search
+            renderPosts();
+        });
+
+        // Run on load
+        loadPosts();
+    </script>
 }
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                Company
-            </th>
-            <th>
-                Post description
-            </th>
-            <th>
-                Posted At
-            </th>
-            <th>
-                Apply until
-            </th>
-            <th>
-                Website Link
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @item.User?.UserName
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValidTo)
-            </td>
-            <td>
-                @{
-                    var url = item.WebsiteLink;
-
-                    if (!string.IsNullOrEmpty(url) && !url.StartsWith("http"))
-                    {
-                        url = "https://" + url;
-                    }
-                }
-
-                <a href="@url" target="_blank" rel="noopener noreferrer">
-                    @item.WebsiteLink
-                </a>
-            </td>
-            <td>
-                    @if (User.IsInRole("Company") || User.IsInRole("StudentOrganization"))
-                {
-                <a asp-action="edit" asp-route-id="@item.PostId">edit</a> 
-                        <a asp-action="details" asp-route-id="@item.PostId">details</a>
-                        <a asp-action="delete" asp-route-id="@item.PostId">delete</a>
-                }
-
-                @if (User.IsInRole("Individual"))
-                {
-                        <a asp-controller="Applications" asp-action="Create" asp-route-postId="@item.PostId">Apply</a>
-                }
-                    
-
-            </td>
-        </tr>
-}
-    </tbody>
-</table> *@
