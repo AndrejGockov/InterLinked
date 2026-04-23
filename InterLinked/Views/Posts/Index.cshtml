@@ -4,99 +4,25 @@
     ViewData["Title"] = "Internships/job Posts";
 }
 
-<style>
-    .post-list-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .post-row-item {
-        display: flex;
-        align-items: center;
-        padding: 1.5rem;
-        border: 1px solid #e5e7eb;
-        border-radius: 12px;
-        background: #fff;
-        text-decoration: none;
-        color: inherit;
-        transition: all 0.2s ease;
-    }
-
-    .post-row-item:hover {
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        border-color: #d1d5db;
-        transform: translateX(4px);
-        color: inherit;
-        text-decoration: none;
-    }
-
-    .post-main-content {
-        flex: 1;
-    }
-
-    .post-status-area {
-        width: 200px;
-        text-align: right;
-        padding: 0 1.5rem;
-    }
-
-    /* Updated to match your <td> badge style */
-    .badge-status {
-        font-size: 1rem; /* Matches fs-6 */
-        padding: 0.4rem 0.8rem;
-        border-radius: 8px;
-        font-weight: 500;
-        display: inline-block;
-        color: #fff !important;
-    }
-
-    .status-active { background-color: #198754 !important; }
-    .status-expired { background-color: #dc3545 !important; }
-
-    #searchInput {
-        max-width: 350px;
-        border-radius: 8px;
-    }
-
-    .no-results {
-        display: none;
-        padding: 3rem;
-        text-align: center;
-        color: #6b7280;
-    }
-
-    .pagination .page-link {
-        color: #374151;
-        border: none;
-        margin: 0 2px;
-        border-radius: 6px;
-    }
-
-    .pagination .page-item.active .page-link {
-        background-color: #374151;
-        color: #fff;
-    }
-</style>
-
 <div class="container-fluid px-4 mt-4">
     <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
         <div>
             <h2 class="fw-bold mb-0">Latest Posts</h2>
             <p class="text-muted mb-0">Find your next opportunity on InterLinked</p>
         </div>
-        <input type="text" id="searchInput" class="form-control" placeholder="Search posts..." />
+        <input type="text" id="searchInput" class="form-control shadow-sm" style="max-width: 350px; border-radius: 8px;" placeholder="Search posts..." />
     </div>
 
-    <div class="post-list-container" id="postsContainer"></div>
+    <div class="d-flex flex-column gap-3" id="postsContainer">
+    </div>
 
-    <div class="no-results" id="noResults">
-        <h5>No posts found.</h5>
-        <p>Try a different search term.</p>
+    <div class="text-center py-5 d-none" id="noResults">
+        <h5 class="text-secondary">No posts found.</h5>
+        <p class="text-muted">Try a different search term.</p>
     </div>
 
     <nav class="mt-5 d-flex justify-content-center" id="paginationNav">
-        <ul class="pagination shadow-sm p-1 bg-white rounded" id="pagination"></ul>
+        <ul class="pagination shadow-sm p-1 bg-white rounded border-0" id="pagination"></ul>
     </nav>
 </div>
 
@@ -107,17 +33,11 @@
         let filtered = [];
         let currentPage = 1;
 
-        /**
-         * Renders the list of posts based on search and pagination
-         */
         function renderPosts() {
             const container = document.getElementById('postsContainer');
             const noResults = document.getElementById('noResults');
-            
-            // Calculate total pages
             const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
 
-            // Bounds safety
             if (currentPage > totalPages && totalPages > 0) currentPage = totalPages;
             if (currentPage < 1) currentPage = 1;
 
@@ -125,67 +45,65 @@
             const pageItems = filtered.slice(start, start + PAGE_SIZE);
 
             container.innerHTML = '';
+            noResults.classList.toggle('d-none', filtered.length > 0);
 
-            // Handle No Results visibility
-            if (filtered.length === 0) {
-                noResults.style.display = 'block';
-            } else {
-                noResults.style.display = 'none';
-            }
-
-            // Generate HTML for each post
             pageItems.forEach(p => {
-                const badgeClass = p.isActive ? 'status-active' : 'status-expired';
-                
-                // If post is not active (expired), show "Expired", otherwise show the date
+                const badgeColor = p.isActive ? 'bg-success' : 'bg-danger';
                 const statusText = p.isActive ? p.validTo : "Expired";
 
                 const row = document.createElement('a');
                 row.href = `/Posts/Details/${p.id}`;
-                row.className = 'post-row-item';
+                // Bootstrap classes for the row styling and hover effects
+                row.className = 'd-flex align-items-center p-4 border rounded-3 bg-white text-decoration-none text-reset shadow-sm-hover transition-all';
+                row.style.transition = "all 0.2s ease";
+                
+                // Adding custom hover effect via JS since CSS isn't allowed
+                row.onmouseover = () => {
+                    row.style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)";
+                    row.style.transform = "translateX(4px)";
+                    row.style.borderColor = "#adb5bd";
+                };
+                row.onmouseout = () => {
+                    row.style.boxShadow = "";
+                    row.style.transform = "none";
+                    row.style.borderColor = "";
+                };
+
                 row.innerHTML = `
-                    <div class="post-main-content">
+                    <div class="flex-grow-1">
                         <div class="d-flex align-items-baseline gap-2 mb-1">
                             <h5 class="fw-bold mb-0">${p.title}</h5>
                             <small class="text-muted">${p.postedAt}</small>
                         </div>
-                        <div class="text-primary small mb-1 fw-semibold">${p.companyName}</div>
+                        <div class="text-primary small mb-1 fw-bold">${p.companyName}</div>
                         <p class="text-secondary mb-0 small text-truncate" style="max-width: 500px;">
                             ${p.description || 'No description available.'}
                         </p>
                     </div>
-                    <div class="post-status-area d-none d-md-block">
-                        <span class="badge-status ${badgeClass}">${statusText}</span>
+                    <div class="ms-4 d-none d-md-block text-end" style="width: 180px;">
+                        <span class="badge ${badgeColor} fs-6 py-2 px-3 rounded-2 fw-medium">
+                            ${statusText}
+                        </span>
                     </div>
                 `;
                 container.appendChild(row);
             });
 
-            // Always render pagination
             renderPagination(totalPages);
         }
 
-        /**
-         * Builds the pagination UI
-         */
         function renderPagination(totalPages) {
-            const nav = document.getElementById('paginationNav');
             const ul = document.getElementById('pagination');
             ul.innerHTML = '';
-
-            // Force visibility
-            nav.classList.remove('d-none');
-            nav.classList.add('d-flex');
-
             const safeTotalPages = totalPages < 1 ? 1 : totalPages;
 
-            // Helper to create page buttons
             const createPageItem = (label, targetPage, isCurrent, isDisabled) => {
                 const li = document.createElement('li');
-                li.className = `page-item ${isCurrent ? 'active' : ''} ${isDisabled ? 'disabled' : ''}`;
+                // Bootstrap utility: border-0 and rounded-2 for the custom look
+                li.className = `page-item mx-1 ${isCurrent ? 'active' : ''} ${isDisabled ? 'disabled' : ''}`;
                 
                 const a = document.createElement('a');
-                a.className = 'page-link';
+                a.className = `page-link border-0 rounded-2 ${isCurrent ? 'bg-dark text-white' : 'text-dark'}`;
                 a.href = 'javascript:void(0)';
                 a.innerHTML = label;
                 
@@ -196,68 +114,47 @@
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     };
                 }
-                
                 li.appendChild(a);
                 return li;
             };
 
-            // 1. First & Previous
-            ul.appendChild(createPageItem('First', 1, false, currentPage === 1));
-            ul.appendChild(createPageItem('&laquo;', currentPage - 1, false, currentPage === 1));
+            ul.appendChild(createPageItem('&laquo;', 1, false, currentPage === 1));
+            ul.appendChild(createPageItem('<', currentPage - 1, false, currentPage === 1));
 
-            // 2. Dynamic Page Numbers
             if (filtered.length > 0) {
                 let start = Math.max(1, currentPage - 2);
                 let end = Math.min(safeTotalPages, currentPage + 2);
-
                 for (let i = start; i <= end; i++) {
                     ul.appendChild(createPageItem(i, i, i === currentPage, false));
                 }
             } else {
-                // Default view when empty
                 ul.appendChild(createPageItem('1', 1, true, true));
             }
 
-            // 3. Next & Last
-            ul.appendChild(createPageItem('&raquo;', currentPage + 1, false, currentPage === safeTotalPages));
-            ul.appendChild(createPageItem('Last', safeTotalPages, false, currentPage === safeTotalPages));
+            ul.appendChild(createPageItem('>', currentPage + 1, false, currentPage === safeTotalPages));
+            ul.appendChild(createPageItem('&raquo;', safeTotalPages, false, currentPage === safeTotalPages));
         }
 
-        /**
-         * Initial Data Fetch
-         */
         async function loadPosts() {
             try {
                 const res = await fetch('/Posts/GetPostsJson');
                 const json = await res.json();
-                
-                // Maps to the "data" property in your JSON result
-                allPosts = json.data || []; 
+                allPosts = json.data || [];
                 filtered = [...allPosts];
-                
                 renderPosts();
-            } catch (err) {
-                console.error("Error loading posts:", err);
-            }
+            } catch (err) { console.error("Error:", err); }
         }
 
-        /**
-         * Live Search Listener
-         */
         document.getElementById('searchInput').addEventListener('input', function() {
             const q = this.value.toLowerCase();
-            
-            filtered = allPosts.filter(p => 
-                (p.title || '').toLowerCase().includes(q) || 
-                (p.companyName || '').toLowerCase().includes(q) ||
-                (p.description || '').toLowerCase().includes(q)
+            filtered = allPosts.filter(p =>
+                (p.title || '').toLowerCase().includes(q) ||
+                (p.companyName || '').toLowerCase().includes(q)
             );
-            
-            currentPage = 1; // Always reset to page 1 on search
+            currentPage = 1;
             renderPosts();
         });
 
-        // Run on load
         loadPosts();
     </script>
 }

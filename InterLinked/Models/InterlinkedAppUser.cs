@@ -31,5 +31,18 @@ namespace InterLinked.Models
         public string? TwitterUrl { get; set; }
 
         public string? CvPath { get; set; }
+
+
+
+        [NotMapped]
+        public string Initial
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(UserName)) return "?";
+
+                return UserName.Substring(0, 1).ToUpper();
+            }
+        }
     }
 }
