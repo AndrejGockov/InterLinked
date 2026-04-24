@@ -152,8 +152,17 @@ namespace InterLinked.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LocationLink")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("PostedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<float?>("Salary")
+                        .HasColumnType("real");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -167,6 +176,9 @@ namespace InterLinked.Migrations
 
                     b.Property<string>("WebsiteLink")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("WorkplaceType")
+                        .HasColumnType("int");
 
                     b.HasKey("PostId");
 
