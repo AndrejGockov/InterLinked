@@ -142,6 +142,23 @@
                 allPosts = json.data || [];
                 filtered = [...allPosts];
                 renderPosts();
+
+                // For entering page via searching from home page
+                const urlParams = new URLSearchParams(window.location.search);
+                const searchQ = urlParams.get('search');
+        
+                if (searchQ) {
+                    const input = document.getElementById('searchInput');
+                    input.value = searchQ;
+                    const q = searchQ.toLowerCase();
+                    filtered = allPosts.filter(p =>
+                        (p.title || '').toLowerCase().includes(q) ||
+                        (p.companyName || '').toLowerCase().includes(q)
+                    );
+                } else {
+                    filtered = [...allPosts];
+                }
+
             } catch (err) { console.error("Error:", err); }
         }
 

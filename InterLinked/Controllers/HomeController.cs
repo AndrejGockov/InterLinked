@@ -22,13 +22,7 @@ namespace InterLinked.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var posts = await _context.Post
-                .Include(p => p.User)
-                .Where(p => p.ValidTo == null || p.ValidTo > DateTime.Now)
-                .OrderByDescending(p => p.PostedAt)
-                .ToListAsync();
-
-            return View(posts);
+            return View();
         }
 
         public IActionResult Privacy()

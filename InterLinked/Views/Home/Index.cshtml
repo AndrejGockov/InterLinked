@@ -1,245 +1,101 @@
-﻿@model IEnumerable<InterLinked.Models.Post>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<InterlinkedAppUser> SignInManager
+@inject UserManager<InterlinkedAppUser> UserManager
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
+<div class="p-5 text-center">
+    <div class="pt-5 pb-3">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            var user = await UserManager.GetUserAsync(User);
+            <p class="fs-4 mb-2">Welcome, <strong>@user.UserName</strong></p>
+        }
 
-<div class="p-2">
+        <p class="fs-4">Discover new oppportunities on</p>
+        <h1 class="fw-bold display-1">InterLinked</h1>
+    </div>
 
-    <h5>Discover new oppportunities on</h5>
-    <h1 class="fw-bold">InterLinked</h1>
-</div>
-
-<div class="container-fluid p-2">
-    <div class="row">
-        <div class="col-md-2">
-            @* Explore Section *@
-            <div class="p-3">
-                <ul class="nav flex-column">
+    <div id="searchContainer"
+         class="d-flex justify-content-center align-items-center gap-2 border rounded-3 p-4 pe-5 ps-5 bg-white"
+         style="transition: all 0.2s ease; max-width: 600px; margin: 0 auto;">
         
-                    <li class="nav-item">
-                        <span class="text-muted fw-bold ps-3 mb-2 d-block">
-                            Explore
-                        </span>
-                    </li>
+        <input type="text" id="mainSearchInput"
+               class="p-2 form-control shadow-sm" style="max-width: 350px; border-radius: 8px;"
+               placeholder="Job title, post, keywords..." />
 
-                    <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10"
-                               asp-area="" asp-controller="Home" asp-action="Index">
-                            @* <i class="bi bi-house me-3 fs-5"></i> *@
-                            <button class="btn btn-sm btn-outline-primary">
-                                Home
-                            </button>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10"
-                               asp-area="" asp-controller="Posts" asp-action="Index">
-                            @* <i class="bi bi-arrow-up-right-circle me-3 fs-5"></i> *@
-                            <button class="btn btn-sm btn-outline-primary">
-                                Posts
-                            </button>
-                        </a>
-                    </li>
-                
-                    @* TODO: *@
-                    @* ROUTE DOESNT EXIST CREATE COMPANY VIEW *@
-                    <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10"
-                               asp-area="" asp-controller="Companies" asp-action="Index">
-                            @* <i class="bi bi-arrow-up-right-circle me-3 fs-5"></i>  *@
-                            <button class="btn btn-sm btn-outline-primary">
-                                Companies
-                            </button>
-                        </a>
-                    </li>
+        <button id="searchBtn" class="btn btn-primary fw-bold fs-5 d-inline-flex align-items-center">
+            Search >>
+        </button>
+    </div>
 
-                    <li class="nav-item mt-4">
-                        <span class="text-muted fw-bold ps-3 mb-2 d-block">
-                            Profile
-                        </span>
-                    </li>
-
-                    <li class="nav-item">
-                        @if (User.IsInRole("Company"))
-                        {
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="" asp-controller="Posts" asp-action="MyPosts">
-                                <button class="btn btn-sm btn-outline-primary">
-                                    My Posts
-                                </button>
-                            </a>
-                            
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="" asp-controller="Posts" asp-action="Create">
-                                <button class="btn btn-sm btn-outline-primary">
-                                    Create New Post
-                                </button>
-                            </a>
-                        }
-                        else if (User.IsInRole("Personal"))
-                        {
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="" asp-controller="Applications" asp-action="Index">
-                                <button class="btn btn-sm btn-outline-primary">
-                                    My Applications
-                                </button>
-                            </a>
-                        }
-                        else
-                        {
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="Identity" asp-page="/Account/Register">
-                                <button class="btn btn-sm  btn-outline-primary">
-                                    Register
-                                </button>
-                            </a>
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10" asp-area="Identity" asp-page="/Account/Login">
-                                <button class="btn btn-sm  btn-primary">
-                                    Login
-                                </button>
-                            </a>
-                        }
-                    </li>
-
-                    <li class="nav-item mt-4">
-                        <span class="text-muted fw-bold ps-3 mb-2 d-block">
-                            Tools
-                        </span>
-                    </li>
-
-
-                    @* TODO: *@
-                    @* IF WE MAKE PAGE *@
-                    <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded-3 bg-opacity-10"
-                               asp-area="" asp-controller="Chats" asp-action="Index">
-                            @* <i class="bi bi-newspaper me-3 fs-5"></i>  *@
-                            <button class="btn btn-sm btn-outline-primary">
-                                AI Assistant
-                            </button>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        @* Middle Section*@
-        <div class="col-md-8">
-            <table class="table table-striped table-hover align-middle">
-                <thead>
-                    <tr>
-                        <th><h4 class="fw-bold">Post</h4></th>
-                        <th><h5 class="fw-bold">Status</h5></th>
-                   
-                        @if (User.IsInRole("Individual"))
-                        {
-                            <th><h5 class="fw-bold">Apply</h5></th>
-                        }
-            
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr class="position-relative clickable-row-hover">
-                            <td class="col-md-10">
-                                @* This link covers the whole <tr> because of 'stretched-link' *@
-                                <a href="/Posts/Details/@item.PostId" class="stretched-link text-decoration-none text-reset">
-                                    <div class="mb-1 d-flex align-items-baseline">
-                                        <h4 class="fw-bold me-2">@item.Title</h4>
-                                        <p class="text-muted m-0">Company: @(item.User.UserName) at @item.PostedAt.ToString("dd.MM.yyyy")</p>
-                                    </div>
-                                </a>
-                                <p class="mb-0">
-                                    @(item.Description?.Length > 200 ? item.Description.Substring(0, 200) + "..." : item.Description)
-                                </p>
-                            </td>
-
-                            <td class="col-md-2">
-                                <span class="badge @(item.IsActive() ? "bg-success" : "bg-danger") fs-6">
-                                    @(item.ValidTo?.ToString("dd.MM.yyyy") ?? "No Expiration")
-                                </span>
-                            </td>
-
-                            @if (User.IsInRole("Individual"))
-                            {
-                                <td style="z-index: 2; position: relative;">
-                                    @* This button needs a higher z-index to stay clickable over the stretched link *@
-                                    <a class="btn btn-primary btn-sm fw-bold"
-                                           href="/Applications/Create/@item.PostId">
-                                        Apply
-                                    </a>
-                                </td>
-                            }
-                        </tr>
-                    }
-                </tbody>
-
-                @* <tbody>
-                    @foreach (var item in Model)
-                    {
-                            <tr class="align-items-center">
-                                <a class="" asp-controller="Applications" asp-action="Create" asp-route-postId="@item.PostId">
-                                <td class="col-md-10">
-                                    <div class="">
-                                        <div class="mb-1 d-flex align-items-baseline">
-                                            <h4 class="fw-bold me-2">@item.Title</h4>
-                                            <br />
-                                            <p class="text-muted m-0">Company: @(item.User.UserName) at @item.PostedAt.ToString("dd.MM.yyyy")</p>
-                                        </div>
-                                        <div>
-                                            <p>
-                                                @(item.Description?.Length > 80
-                                                        ? item.Description.Substring(0, 80) + "..."
-                                                        : item.Description)
-                                            </p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="col-md-2 align-items-baseline">
-                                    <div class="align-items-baseline">
-                                        @if (item.IsActive())
-                                        {
-                                            <span class="badge bg-success fs-6">@(item.ValidTo?.ToString("dd.MM.yyyy") ?? "No Expiration")</span>
-                                        }
-                                        else
-                                        {
-                                            <span class="badge bg-danger fs-6">Expired on: @(item.ValidTo?.ToString("dd.MM.yyyy") ?? "No Expiration")</span>
-                                        }
-                                    </div>
-                                </td>
-                                @* <td>
-                                    <a class="btn btn-primary btn-sm fw-bold" asp-controller="Posts" asp-action="details" asp-route-id="@item.PostId">View</a><br />
-                                </td>
-                                <td>
-                                    @if (User.IsInRole("Individual"))
-                                    {
-                                    }
-                                </td>
-                                </a>
-                            </tr>
-                    }
-                </tbody> *@
-            </table>
-        </div>
-
-        @* Profile Section *@
-        <div class="col-md-2">
-            @if (Model != null)
-            {
-                <div class="card p-2 shadow-sm">
-                    <p class="mb-1 text-muted small">Logged in as:</p>
-                    <p class="fw-bold">@User.Identity?.Name</p>
-                    @* You can add more profile details here since Model is the full InterlinkedAppUser *@
-                </div>
-            }
-            else
-            {
-                <div class="alert alert-info py-2 small">
-                    Please <a asp-area="Identity" asp-page="/Account/Login">Login</a> to see your profile.
-                </div>
-            }
+    <div id="errorBox" class="d-none w-50 mx-auto mt-5">
+        <div class="alert alert-danger py-2 shadow-sm fw-bold mt-3 p-4 pe-5 ps-5" role="alert">
+            Enter a valid search
         </div>
     </div>
 
+    <div class="mt-1 pt-5 pb-3">
+        @if (!SignInManager.IsSignedIn(User))
+        {
+            <p class="fs-5 mb-2">Create an account or sign in to see new job posts</p>
 
+            <button class="btn btn-primary ps-3 pe-3 fw-bold fs-5">
+                <a class="nav-link text-dark text-white" asp-area="Identity" asp-page="/Account/Register">
+                    Get Started
+                </a>
+            </button>
+        }
+    </div>
 </div>
+
+@section Scripts {
+    <script>
+        const container = document.getElementById('searchContainer');
+        const input = document.getElementById('mainSearchInput');
+        const btn = document.getElementById('searchBtn');
+        const errorBox = document.getElementById('errorBox');
+
+        // Logic to show/hide using Bootstrap classes
+        function doSearch() {
+            const query = input.value.trim();
+
+            if (query === "") {
+                // Remove 'd-none' (hide) and add 'd-block' (show)
+                errorBox.classList.remove('d-none');
+                errorBox.classList.add('d-block');
+                return;
+            }
+
+            // Reverse classes if valid
+            errorBox.classList.add('d-none');
+            errorBox.classList.remove('d-block');
+            window.location.href = `/Posts?search=${encodeURIComponent(query)}`;
+        }
+
+        // Hide error when user starts typing
+        input.addEventListener('input', () => {
+            if (input.value.trim() !== "") {
+                errorBox.classList.add('d-none');
+                errorBox.classList.remove('d-block');
+            }
+        });
+
+        // Hover Effect
+        container.onmouseover = () => {
+            container.style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)";
+            container.style.transform = "translateY(-4px)";
+            container.style.borderColor = "#adb5bd";
+        };
+        container.onmouseout = () => {
+            container.style.boxShadow = "";
+            container.style.transform = "none";
+            container.style.borderColor = "";
+        };
+
+        btn.addEventListener('click', doSearch);
+        input.addEventListener('keypress', (e) => { if (e.key === 'Enter') doSearch(); });
+    </script>
+}

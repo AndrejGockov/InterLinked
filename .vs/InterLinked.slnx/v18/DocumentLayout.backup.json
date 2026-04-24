@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\user\\documents\\programming\\interlinked_v2\\interlinked\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\user\\documents\\programming\\interlinked_v2\\interlinked\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\user\\documents\\programming\\interlinked_v2\\interlinked\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|solutionrelative:interlinked\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E5896B6E-A539-9325-0B5F-0ADC8147DDBA}|InterLinked\\InterLinked.csproj|c:\\users\\user\\documents\\programming\\interlinked_v2\\interlinked\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -22,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V2\\InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V2\\InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-24T08:52:57.674Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -32,33 +45,20 @@
               "RelativeDocumentMoniker": "InterLinked\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V2\\InterLinked\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "InterLinked\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAC8AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-23T17:28:39.147Z",
+              "WhenOpened": "2026-04-24T08:52:56.36Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_LoginPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V2\\InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeDocumentMoniker": "InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
-              "ToolTip": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V2\\InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeToolTip": "InterLinked\\Views\\Shared\\_LoginPartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-23T15:47:25.702Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V2\\InterLinked\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "InterLinked\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\user\\Documents\\Programming\\InterLinked_V2\\InterLinked\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "InterLinked\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAA0AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-23T15:34:30.372Z",
               "EditorCaption": ""
