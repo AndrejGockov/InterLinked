@@ -7,8 +7,8 @@
 <div class="container-fluid px-4 mt-4">
     <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
         <div>
-            <h2 class="fw-bold mb-0">Latest Posts</h2>
-            <p class="text-muted mb-0">Find your next opportunity on InterLinked</p>
+            <h2 class="fw-bold mb-0">Latest Company Posts</h2>
+            <p class="text-muted mb-0">Find your next career opportunities on InterLinked</p>
         </div>
         <input type="text" id="searchInput" class="form-control shadow-sm" style="max-width: 350px; border-radius: 8px;" placeholder="Search posts..." />
     </div>
@@ -33,6 +33,15 @@
         let filtered = [];
         let currentPage = 1;
 
+        function formatDate(dateString) {
+            if (!dateString) return "Forever";
+
+            const d = new Date(dateString);
+            if (isNaN(d.getTime())) return "Forever";
+
+            return d.toLocaleDateString('de-DE'); // dd.MM.yyyy
+        }
+
         function renderPosts() {
             const container = document.getElementById('postsContainer');
             const noResults = document.getElementById('noResults');
@@ -49,15 +58,23 @@
 
             pageItems.forEach(p => {
                 const badgeColor = p.isActive ? 'bg-success' : 'bg-danger';
-                const statusText = p.isActive ? p.validTo : "Expired";
+
+                let statusText;
+                if (p.isActive) {
+                    statusText = p.validTo
+                        ? `Applications open until: ${formatDate(p.validTo)}`
+                        : `Open (Forever)`;
+                } else {
+                    statusText = p.validTo
+                        ? `Expired on: ${formatDate(p.validTo)}`
+                        : `Expired`;
+                }
 
                 const row = document.createElement('a');
                 row.href = `/Posts/Details/${p.id}`;
-                // Bootstrap classes for the row styling and hover effects
                 row.className = 'd-flex align-items-center p-4 border rounded-3 bg-white text-decoration-none text-reset shadow-sm-hover transition-all';
                 row.style.transition = "all 0.2s ease";
-                
-                // Adding custom hover effect via JS since CSS isn't allowed
+
                 row.onmouseover = () => {
                     row.style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)";
                     row.style.transform = "translateX(4px)";
@@ -70,22 +87,24 @@
                 };
 
                 row.innerHTML = `
-                    <div class="flex-grow-1">
-                        <div class="d-flex align-items-baseline gap-2 mb-1">
-                            <h5 class="fw-bold mb-0">${p.title}</h5>
-                            <small class="text-muted">${p.postedAt}</small>
+                        <div class="flex-grow-1">
+                            <div class="d-flex align-items-baseline gap-2 mb-1">
+                                <h5 class="fw-bold mb-0">${p.title}</h5>
+                                <small class="text-muted">${p.postedAt}</small>
+                            </div>
+                            <div class="text-primary small mb-1 fw-bold">${p.companyName}</div>
+                            <p class="text-secondary mb-0 small text-truncate" style="max-width: 500px;">
+                                ${p.description || 'No description available.'}
+                            </p>
                         </div>
-                        <div class="text-primary small mb-1 fw-bold">${p.companyName}</div>
-                        <p class="text-secondary mb-0 small text-truncate" style="max-width: 500px;">
-                            ${p.description || 'No description available.'}
-                        </p>
-                    </div>
-                    <div class="ms-4 d-none d-md-block text-end" style="width: 180px;">
-                        <span class="badge ${badgeColor} fs-6 py-2 px-3 rounded-2 fw-medium">
-                            ${statusText}
-                        </span>
-                    </div>
-                `;
+
+                        <div class="ms-4 d-none d-md-block text-end">
+                            <span class="badge ${badgeColor} fs-6 py-2 px-3 rounded-2 fw-medium text-wrap">
+                                ${statusText}
+                            </span>
+                        </div>
+                    `;
+
                 container.appendChild(row);
             });
 
@@ -99,14 +118,13 @@
 
             const createPageItem = (label, targetPage, isCurrent, isDisabled) => {
                 const li = document.createElement('li');
-                // Bootstrap utility: border-0 and rounded-2 for the custom look
                 li.className = `page-item mx-1 ${isCurrent ? 'active' : ''} ${isDisabled ? 'disabled' : ''}`;
-                
+            
                 const a = document.createElement('a');
                 a.className = `page-link border-0 rounded-2 ${isCurrent ? 'bg-dark text-white' : 'text-dark'}`;
                 a.href = 'javascript:void(0)';
                 a.innerHTML = label;
-                
+            
                 if (!isDisabled && !isCurrent) {
                     a.onclick = () => {
                         currentPage = targetPage;
@@ -140,16 +158,12 @@
                 const res = await fetch('/Posts/GetPostsJson');
                 const json = await res.json();
                 allPosts = json.data || [];
-                filtered = [...allPosts];
-                renderPosts();
 
-                // For entering page via searching from home page
                 const urlParams = new URLSearchParams(window.location.search);
                 const searchQ = urlParams.get('search');
-        
+
                 if (searchQ) {
-                    const input = document.getElementById('searchInput');
-                    input.value = searchQ;
+                    document.getElementById('searchInput').value = searchQ;
                     const q = searchQ.toLowerCase();
                     filtered = allPosts.filter(p =>
                         (p.title || '').toLowerCase().includes(q) ||
@@ -159,7 +173,11 @@
                     filtered = [...allPosts];
                 }
 
-            } catch (err) { console.error("Error:", err); }
+                renderPosts();
+
+            } catch (err) {
+                console.error("Error:", err);
+            }
         }
 
         document.getElementById('searchInput').addEventListener('input', function() {
