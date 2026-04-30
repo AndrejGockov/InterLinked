@@ -2,14 +2,26 @@
 
 @{
     ViewData["Title"] = "Create Post";
+
+    var validToDate = ViewBag.ValidToDate as string ?? "";
 }
 
 <div class="container mt-4" style="max-width: 800px;">
 
+    <!-- TOP LEFT BACK BUTTON -->
+    <div class="mb-3">
+        <a asp-action="Index" class="btn btn-link text-decoration-none"
+               onclick="return confirm('Are you sure you want to discard changes?')">
+            ← Back
+        </a>
+    </div>
+
     <!-- HEADER -->
     <div class="mb-4">
         <h2 class="fw-bold mb-1">Create a new company post</h2>
-        <p class="text-muted mb-0">Enter the details below and click "Create new post" to create the new post!</p>
+        <p class="text-muted mb-0">
+            Enter the details below and click "Create new post"
+        </p>
     </div>
 
     <!-- CARD -->
@@ -28,6 +40,15 @@
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
 
+                <!-- WEBSITE -->
+                <div class="mb-4">
+                    <label asp-for="WebsiteLink" class="form-label fw-semibold">
+                        External URL
+                    </label>
+                    <input asp-for="WebsiteLink" class="form-control" />
+                    <span asp-validation-for="WebsiteLink" class="text-danger"></span>
+                </div>
+
                 <!-- DESCRIPTION -->
                 <div class="mb-3">
                     <label asp-for="Description" class="form-label fw-semibold">Description</label>
@@ -35,32 +56,24 @@
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
 
-                <div class="row">
-                    <!-- VALID TO -->
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="ValidTo" class="form-label fw-semibold">
-                            Position open until:
-                        </label>
-                        <input asp-for="ValidTo" class="form-control" />
-                        <span asp-validation-for="ValidTo" class="text-danger"></span>
-                    </div>
-                </div>
-
-                <!-- WEBSITE -->
-                <div class="mb-4">
-                    <label asp-for="WebsiteLink" class="form-label fw-semibold">
-                        External link to this position
+                <!-- OPEN UNTIL DATE -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                        Post will be open until:
                     </label>
-                    <input asp-for="WebsiteLink" class="form-control" />
-                    <span asp-validation-for="WebsiteLink" class="text-danger"></span>
+
+                    <input type="date"
+                           name="ValidToDate"
+                           class="form-control"
+                           value="@validToDate" />
+
+                    <span class="text-danger">
+                        @Html.ValidationMessage("ValidTo")
+                    </span>
                 </div>
 
                 <!-- BUTTONS -->
-                <div class="d-flex justify-content-between align-items-center">
-
-                    <a asp-action="Index" class="btn btn-link text-decoration-none">
-                        ← Back
-                    </a>
+                <div class="d-flex justify-content-end mt-4">
 
                     <button type="submit" class="btn btn-primary px-3">
                         Create new post
@@ -75,7 +88,36 @@
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            const form = document.querySelector("form");
+            if (!form) return;
+
+            let isDirty = false;
+
+            const fields = form.querySelectorAll("input, textarea, select");
+
+            fields.forEach(el => {
+                el.addEventListener("input", () => {
+                    isDirty = true;
+                });
+            });
+
+            form.addEventListener("submit", () => {
+                isDirty = false;
+            });
+
+            // IMPORTANT: must be returnValue for Chrome/Edge
+            window.addEventListener("beforeunload", function(e) {
+                if (!isDirty) return;
+
+                e.preventDefault();
+                e.returnValue = ""; // triggers browser warning
+            });
+
+        });
+    </script>
 }

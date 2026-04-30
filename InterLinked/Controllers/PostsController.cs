@@ -65,38 +65,40 @@ namespace InterLinked.Controllers
         }
 
         // POST: Posts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Company")]
-        public async Task<IActionResult> Create(Post post)
+        public async Task<IActionResult> Create(Post post, string ValidToDate)
         {
-            if (!ModelState.IsValid)
-            {
-                var errors = ModelState
-                    .SelectMany(x => x.Value.Errors)
-                    .Select(e => e.ErrorMessage)
-                    .ToList();
-
-                return BadRequest(errors);
-            }
-
             var userId = _userManager.GetUserId(User);
 
             if (userId == null)
                 return Unauthorized();
 
             post.UserId = userId;
-
             post.PostedAt = DateTime.Now;
 
-            if (post.ValidTo < post.PostedAt)
+            // ✅ SAFE: date only, auto 23:59
+            if (!string.IsNullOrWhiteSpace(ValidToDate) &&
+                DateTime.TryParse(ValidToDate, out var date))
             {
-                ModelState.AddModelError("ValidTo", "ValidTo Date can't be in the in past");
+                post.ValidTo = new DateTime(
+                    date.Year,
+                    date.Month,
+                    date.Day,
+                    23, 59, 0
+                );
             }
 
-            if (!ModelState.IsValid) {
+            // validation
+            if (post.ValidTo.HasValue && post.ValidTo < post.PostedAt)
+            {
+                ModelState.AddModelError("ValidTo", "ValidTo can't be in the past");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.ValidToDate = ValidToDate;
                 return View(post);
             }
 
@@ -106,35 +108,31 @@ namespace InterLinked.Controllers
             return RedirectToAction(nameof(MyPosts));
         }
 
+        // GET: Edit
         [Authorize(Roles = "Company")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var post = await _context.Post.FindAsync(id);
+
             if (post == null)
-            {
                 return NotFound();
-            }
+
             return View(post);
         }
 
-        // POST: Posts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Company")]
-        public async Task<IActionResult> Edit(int id, [Bind("PostId,Title,Description,PostedAt,ValidTo,WebsiteLink")] Post post)
+        public async Task<IActionResult> Edit(int id, [Bind("PostId,Title,Description,WebsiteLink")] Post post, string ValidToDate)
         {
             if (id != post.PostId)
                 return NotFound();
 
             var userId = _userManager.GetUserId(User);
-
             var existingPost = await _context.Post.FindAsync(id);
 
             if (existingPost == null)
@@ -143,42 +141,44 @@ namespace InterLinked.Controllers
             if (existingPost.UserId != userId)
                 return Forbid();
 
-            if (ModelState.IsValid)
+            if (!string.IsNullOrWhiteSpace(ValidToDate) &&
+                DateTime.TryParse(ValidToDate, out var date))
             {
-                existingPost.Title = post.Title;
-                existingPost.Description = post.Description;
-                existingPost.ValidTo = post.ValidTo;
-                existingPost.WebsiteLink = post.WebsiteLink;
-
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                existingPost.ValidTo = new DateTime(
+                    date.Year,
+                    date.Month,
+                    date.Day,
+                    23, 59, 0
+                );
             }
 
-            return View(post);
+            existingPost.Title = post.Title;
+            existingPost.Description = post.Description;
+            existingPost.WebsiteLink = post.WebsiteLink;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
+        // DELETE
         [Authorize(Roles = "Company")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var post = await _context.Post
-                .FirstOrDefaultAsync(m => m.PostId == id);
+            var post = await _context.Post.FirstOrDefaultAsync(m => m.PostId == id);
+
             if (post == null)
-            {
                 return NotFound();
-            }
 
             return View(post);
         }
 
-        // POST: Posts/Delete/5
-        [Authorize(Roles = "Company")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var post = await _context.Post.FindAsync(id);
@@ -197,23 +197,14 @@ namespace InterLinked.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PostExists(int id)
-        {
-            return _context.Post.Any(e => e.PostId == id);
-        }
-
-
-
-
+        // MY POSTS
         [Authorize(Roles = "Company")]
         public async Task<IActionResult> MyPosts()
         {
             var userId = _userManager.GetUserId(User);
 
             if (userId == null)
-            {
                 return Unauthorized();
-            }
 
             var posts = await _context.Post
                 .Where(p => p.UserId == userId)
@@ -223,7 +214,7 @@ namespace InterLinked.Controllers
             return View(posts);
         }
 
-
+        // JSON
         [HttpGet]
         public async Task<IActionResult> GetPostsJson()
         {
@@ -235,10 +226,8 @@ namespace InterLinked.Controllers
                     id = p.PostId,
                     title = p.Title,
                     description = p.Description,
-                    // We format these here so JS doesn't have to guess
                     postedAt = p.PostedAt.ToString("dd.MM.yyyy"),
                     validTo = p.ValidTo.HasValue ? p.ValidTo.Value.ToString("dd.MM.yyyy") : "No Expiration",
-                    // Check if active: if no expiry, it's true. If expiry, check if future.
                     isActive = !p.ValidTo.HasValue || p.ValidTo > DateTime.Now,
                     companyName = p.User.UserName
                 })
@@ -246,6 +235,5 @@ namespace InterLinked.Controllers
 
             return Json(new { data = posts });
         }
-
     }
 }
