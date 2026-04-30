@@ -1,54 +1,78 @@
 ﻿@model InterLinked.Models.Post
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Post";
 }
 
-<h1>Edit</h1>
+<div class="container mt-4" style="max-width: 800px;">
 
-<h4>Post</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PostId" />
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PostedAt" class="control-label"></label>
-                <input asp-for="PostedAt" class="form-control" />
-                <span asp-validation-for="PostedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ValidTo" class="control-label"></label>
-                <input asp-for="ValidTo" class="form-control" />
-                <span asp-validation-for="ValidTo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WebsiteLink" class="control-label"></label>
-                <input asp-for="WebsiteLink" class="form-control" />
-                <span asp-validation-for="WebsiteLink" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <!-- HEADER -->
+    <div class="mb-4">
+        <h2 class="fw-bold mb-1">Edit Post</h2>
+        <p class="text-muted mb-0">Edit post details below and click "Save Changes" to update your post!</p>
+    </div>
+
+    <!-- CARD -->
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+
+            <form asp-action="Edit">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <input type="hidden" asp-for="PostId" />
+
+                <!-- TITLE -->
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label fw-semibold">Post title</label>
+                    <input asp-for="Title" class="form-control form-control-lg" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <!-- DESCRIPTION -->
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label fw-semibold">Description</label>
+                    <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <!-- VALID TO -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ValidTo" class="form-label fw-semibold">Position open until:</label>
+                        <input asp-for="ValidTo" class="form-control" />
+                        <span asp-validation-for="ValidTo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- WEBSITE -->
+                <div class="mb-4">
+                    <label asp-for="WebsiteLink" class="form-label fw-semibold">External link to this position</label>
+                    <input asp-for="WebsiteLink" class="form-control" />
+                    <span asp-validation-for="WebsiteLink" class="text-danger"></span>
+                </div>
+
+                <!-- BUTTONS -->
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <a asp-action="Index" class="btn btn-link text-decoration-none">
+                        ← Back
+                    </a>
+
+                    <button type="submit" class="btn btn-primary px-3">
+                        Save changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
