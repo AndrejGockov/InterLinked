@@ -70,6 +70,7 @@ wwwroot\uploads\f56d7b33-d66f-4ff1-a697-e0a40e835525.pdf
 wwwroot\uploads\profiles\99072ffc-141b-44f8-b127-91d26e2383c1_logo.png
 wwwroot\uploads\profiles\c5d40058-fc67-461b-9219-e161903bf1be_logo.png
 wwwroot\uploads\profiles\c8fecc7d-fd8f-480c-becf-79cff4348bb5_3e494e57ffb264b7491875d9fe63eec0.jpg
+wwwroot\uploads\profiles\f50aeda4-bc5d-4429-9715-bf2d6a9fa6dd_test.jpg
 C:\Users\angel\Desktop\InterLinked\InterLinked\wwwroot\lib\jquery\LICENSE.txt
 C:\Users\angel\Desktop\InterLinked\InterLinked\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\angel\Desktop\InterLinked\InterLinked\wwwroot\lib\jquery\dist\jquery.slim.min.js

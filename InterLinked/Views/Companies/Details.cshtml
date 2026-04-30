@@ -27,36 +27,60 @@
                     </p>
                 }
 
-                @if (!string.IsNullOrEmpty(Model.InstagramUrl) || !string.IsNullOrEmpty(Model.FacebookUrl) ||
-                     !string.IsNullOrEmpty(Model.LinkedInUrl) || !string.IsNullOrEmpty(Model.TwitterUrl))
+                @{
+                    string FixUrl(string url)
+                    {
+                        if (string.IsNullOrWhiteSpace(url))
+                            return null;
+
+                        return url.StartsWith("http", StringComparison.OrdinalIgnoreCase)
+                            ? url
+                            : "https://" + url;
+                    }
+                }
+
+                @if (!string.IsNullOrEmpty(Model.InstagramUrl) ||
+                     !string.IsNullOrEmpty(Model.FacebookUrl) ||
+                     !string.IsNullOrEmpty(Model.LinkedInUrl) ||
+                     !string.IsNullOrEmpty(Model.TwitterUrl))
                 {
                     <hr class="my-3" />
                     <h6 class="text-uppercase fw-bold text-muted small mb-3">Social Media</h6>
+
                     <div class="d-flex flex-wrap gap-2">
+
                         @if (!string.IsNullOrEmpty(Model.InstagramUrl))
                         {
-                            <a href="@Model.InstagramUrl" target="_blank" class="btn btn-sm btn-outline-danger">
+                            <a href="@FixUrl(Model.InstagramUrl)" target="_blank"
+                                   class="btn btn-sm btn-outline-danger">
                                 <i class="bi bi-instagram me-1"></i>Instagram
                             </a>
                         }
+
                         @if (!string.IsNullOrEmpty(Model.FacebookUrl))
                         {
-                            <a href="@Model.FacebookUrl" target="_blank" class="btn btn-sm btn-outline-primary">
+                            <a href="@FixUrl(Model.FacebookUrl)" target="_blank"
+                                   class="btn btn-sm btn-outline-primary">
                                 <i class="bi bi-facebook me-1"></i>Facebook
                             </a>
                         }
+
                         @if (!string.IsNullOrEmpty(Model.LinkedInUrl))
                         {
-                            <a href="@Model.LinkedInUrl" target="_blank" class="btn btn-sm btn-outline-info">
+                            <a href="@FixUrl(Model.LinkedInUrl)" target="_blank"
+                                   class="btn btn-sm btn-outline-info">
                                 <i class="bi bi-linkedin me-1"></i>LinkedIn
                             </a>
                         }
+
                         @if (!string.IsNullOrEmpty(Model.TwitterUrl))
                         {
-                            <a href="@Model.TwitterUrl" target="_blank" class="btn btn-sm btn-outline-dark">
-                                <i class="bi bi-twitter-x me-1"></i>Twitter
+                            <a href="@FixUrl(Model.TwitterUrl)" target="_blank"
+                                   class="btn btn-sm btn-outline-dark">
+                                <i class="bi bi-twitter-x me-1"></i>X
                             </a>
                         }
+
                     </div>
                 }
             </div>
@@ -69,13 +93,17 @@
                 @(string.IsNullOrEmpty(Model.CompanyDescription) ? "No description provided." : Model.CompanyDescription)
             </p>
             <hr class="my-5" />
-            <h4 class="fw-bold mb-4">Current Openings</h4>
+
+
+            <h4 class="fw-bold mb-4">Currently open positions</h4>
+            <p>Click on a post to view details<p>
             <div class="list-group border-0">
                 @foreach (var post in Model.MyPosts?.OrderByDescending(p => p.PostedAt) ?? Enumerable.Empty<Post>())
                 {
                     <a asp-controller="Posts" asp-action="Details" asp-route-id="@post.PostId" class="list-group-item list-group-item-action shadow-sm mb-2 rounded border-0 p-3">
                         <div class="d-flex justify-content-between align-items-center">
-                            <div><h6 class="fw-bold mb-0">@post.Title</h6><small class="text-muted">@post.PostedAt.ToShortDateString()</small></div>
+                            <div><h6 class="fw-bold mb-0">@post.Title</h6><small class="text-muted">Applications open until: @post.ValidTo?.ToString("dd MMM yyyy")</small></div>
+                            
                             <span class="btn btn-sm btn-primary">Details</span>
                         </div>
                     </a>

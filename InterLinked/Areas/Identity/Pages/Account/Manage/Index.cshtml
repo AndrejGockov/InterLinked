@@ -36,6 +36,38 @@
                 <input asp-for="Input.ProfilePicture" type="file" class="form-control" accept="image/*" />
             </div>
 
+            <hr />
+
+            <h5 class="mb-3">Your social profiles</h5>
+
+            <div class="mb-3">
+                <label class="form-label">LinkedIn</label>
+                <input asp-for="Input.LinkedInUrl"
+                       class="form-control"
+                       placeholder="https://linkedin.com/in/your-profile" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Instagram</label>
+                <input asp-for="Input.InstagramUrl"
+                       class="form-control"
+                       placeholder="https://instagram.com/your-profile" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Facebook</label>
+                <input asp-for="Input.FacebookUrl"
+                       class="form-control"
+                       placeholder="https://facebook.com/your-profile" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">X (Twitter)</label>
+                <input asp-for="Input.TwitterUrl"
+                       class="form-control"
+                       placeholder="https://x.com/your-handle" />
+            </div>
+
             <button type="submit" class="w-100 btn btn-lg btn-primary">Save Changes</button>
         </form>
     </div>

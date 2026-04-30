@@ -37,21 +37,20 @@ namespace InterLinked.Areas.Identity.Pages.Account.Manage
         {
             [Phone]
             [Display(Name = "Phone number")]
-            public string PhoneNumber { get; set; }
+            public string? PhoneNumber { get; set; }
 
             [Display(Name = "Company Description")]
-            public string CompanyDescription { get; set; }
+            public string? CompanyDescription { get; set; }
 
             [Display(Name = "Profile Picture")]
-            public IFormFile ProfilePicture { get; set; }
+            public IFormFile? ProfilePicture { get; set; }
 
-            // FIX: Added to satisfy the 'required' constraint in the User model
             public InterlinkedAppUser.UserType OrganizationType { get; set; }
 
-            public string InstagramUrl { get; set; }
-            public string FacebookUrl { get; set; }
-            public string LinkedInUrl { get; set; }
-            public string TwitterUrl { get; set; }
+            public string? InstagramUrl { get; set; }
+            public string? FacebookUrl { get; set; }
+            public string? LinkedInUrl { get; set; }
+            public string? TwitterUrl { get; set; }
         }
 
         private async Task LoadAsync(InterlinkedAppUser user)
